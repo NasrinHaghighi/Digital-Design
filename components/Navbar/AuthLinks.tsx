@@ -10,7 +10,7 @@ function AuthLinks() {
     {status === 'unauthenticated' ?
                 (<Link href='/login' className='text-center'>ورود</Link>)
                 :
-                (<button  className='text-center'>خروج</button>)
+                (<button  className='text-center '>خروج</button>)
             }
     </>
   )

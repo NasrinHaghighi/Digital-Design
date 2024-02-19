@@ -8,13 +8,31 @@
        
   /* Add more src lines for additional font formats if needed */
 }
-:root {
-  --font-family-body: 'payda', sans-serif;
-  --bg:white;
-  --textColor:black;
-  --softBg:#f0f0f0;
-  -softTextColor:#626262
+@font-face {
+  font-family: 'vazir';
+  src: url('./../public/fonts/Vazirmatn-Medium.ttf'),
+       
+  /* Add more src lines for additional font formats if needed */
 }
+:root {
+  --font-family-body: 'vazir', sans-serif;
+  --bg:rgb(246, 246, 252);
+  --textColor:rgb(20, 20, 20);
+  --softBg:#f0f0f0;
+  --softTextColor:#626262 ;
+  --icons:rgb(213, 108, 245);
+}
+[data-theme="dark"] {
+  --bg:rgb(19, 16, 28);
+  --textColor:rgb(247, 243, 239);
+  --softBg:#1f273a;
+  --softTextColor:#a6a6a6;
+  --icons:rgb(135, 108, 245);
+  --ligthBg:rgb(163, 159, 180);
+
+}
+
+
 *{
   padding: 0;
   margin: 0;
@@ -24,6 +42,9 @@ body{
   max-width: 100vw;
   overflow: hidden;
   font-family: var(--font-family-body);
+  background-color: var( --bg);
+  color: var(--textColor);
+
   
 }
 a{
