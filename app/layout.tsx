@@ -4,7 +4,8 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 
 
-import Providers from "./providers";
+import ThemeProviders from "../app/providers/ThemeProviders";
+import AuthProvider from "./providers/AuthProvider";
 
 
 
@@ -22,7 +23,8 @@ export default function RootLayout({
     <html lang="en" dir="rtl">
     
       <body>
-      <Providers>
+        <AuthProvider>
+      <ThemeProviders>
       <div className="mx-auto max-w-screen-xl">
         <div className="max-w-screen-2xl m-auto p-10">
         <Navbar />
@@ -30,7 +32,8 @@ export default function RootLayout({
      <Footer />
       </div>
       </div>
-      </Providers>
+      </ThemeProviders>
+      </AuthProvider>
       </body>
       
     </html>

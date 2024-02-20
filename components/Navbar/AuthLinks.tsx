@@ -1,16 +1,18 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
+import { useSession,signIn ,signOut} from 'next-auth/react'
+
 
 function AuthLinks() {
 
-    //temporary
-    const status: string = 'unauthenticated';
+   const {data, status} = useSession()
   return (
     <>
     {status === 'unauthenticated' ?
-                (<Link href='/login' className='text-center'>ورود</Link>)
+                (<Link href='/register' className='text-center'>ورود</Link>)
                 :
-                (<button  className='text-center '>خروج</button>)
+                (<button  className='text-center ' onClick={()=>signOut()}>خروج</button>)
             }
     </>
   )

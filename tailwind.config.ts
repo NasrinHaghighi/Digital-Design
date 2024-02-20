@@ -16,7 +16,8 @@ const config: Config = {
             'purple': '#3f3cbb',
              'bg':'var(--bg)',
             "softTextColor":"var(--softTextColor)",
-            'icons':"var(--icons)"
+            'icons':"var(--icons)",
+            "loginBg":"var(--loginBg)"
           },
     },
   },

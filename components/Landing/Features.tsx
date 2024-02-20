@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import Banner from '../../../public/img/culture.png'
+import Banner from '../../public/img/culture.png'
 
 function Features() {
   return (

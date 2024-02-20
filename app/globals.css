@@ -21,6 +21,7 @@
   --softBg:#f0f0f0;
   --softTextColor:#626262 ;
   --icons:rgb(213, 108, 245);
+  --loginBg:#BEBEBE;
 }
 [data-theme="dark"] {
   --bg:rgb(19, 16, 28);
@@ -29,6 +30,7 @@
   --softTextColor:#a6a6a6;
   --icons:rgb(135, 108, 245);
   --ligthBg:rgb(163, 159, 180);
+  --loginBg:#EEEEEE;
 
 }
 
@@ -40,7 +42,7 @@
 }
 body{
   max-width: 100vw;
-  overflow: hidden;
+  
   font-family: var(--font-family-body);
   background-color: var( --bg);
   color: var(--textColor);
