@@ -2,12 +2,12 @@
 
 
 
-import Link from 'next/link';
+
 import SigninbyGoogle from '../../../components/SigninbyGoogle/SigninbyGoogle';
 import { useFormik } from "formik";
-import { Formik } from 'formik';
+
 import * as Yup from "yup";
-import { useEffect } from 'react';
+import Link from 'next/link';
 
 
 //const passwordrole = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*/?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -41,11 +41,16 @@ const SignUpForm = () => {
         },
       });
       return (
-        <form onSubmit={formik.handleSubmit}>
-        <div className="grid gap-6 mb-10 max-w-3xl mx-auto pt-10">
-       
-       <div className='mb-10'>
-        <label htmlFor="first_name" className="block mb- text-sm font-medium text-gray-900 dark:text-white">نام و نام خانوادگی</label>
+        <form onSubmit={formik.handleSubmit} autoComplete='off'>
+        <div className="grid gap-6 mb-5 max-w-3xl mx-auto pt-10">
+            <div className='text-center'>
+                <Link href='/'>
+                  Logo
+                </Link>
+                </div>
+        <h1 className='text-4xl font-bold p-8 text-center '>ایجاد حساب کاربری </h1>
+       <div className='mb-5'>
+        <label htmlFor="first_name" className="block md-2 text-sm font-medium text-textColor">نام و نام خانوادگی</label>
           <input
             id="name"
             name="name"
@@ -59,8 +64,8 @@ const SignUpForm = () => {
                     ) : null}
           </div>
 
-          <div className='mb-10'>
-          <label htmlFor="email" className="block  text-sm font-medium text-gray-900 dark:text-white">Email address</label>
+          <div className='mb-5'>
+          <label htmlFor="email" className="block  text-sm font-medium text-textColor mb-2">ایمیل</label>
           <input
             id="email"
             name="email"
@@ -75,12 +80,12 @@ const SignUpForm = () => {
           </div>
 
           <div className='mb-10'>
-           <label htmlFor="password" className="block text-sm font-medium text-gray-900 dark:text-white">Password</label>
+           <label htmlFor="password" className="block text-sm font-medium text-textColor mb-2 ">پسورد</label>
           <input
             id="password"
             name="password"
             type="password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="علی خلیلی" required 
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="******" required 
             onChange={formik.handleChange}
             value={formik.values.email}
           />
@@ -88,10 +93,17 @@ const SignUpForm = () => {
                         <div className="input feedback">{formik.errors.password}</div>
                     ) : null}
           </div>
-          <button type="submit">Submit</button>
-
-            <SigninbyGoogle/>
+          <div className="flex justify-center">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md  w-1/2" type="submit">Submit</button>
+          </div>
+          <div className="flex justify-center items-center mt-4 mb-4">
+  <hr className="w-1/4 border-gray400"></hr>
+  <div className="mx-4 text-gray400 font-bold">or</div>
+  <hr className="w-1/4 border-gray400"></hr>
+</div>
+            
             </div>
+            <SigninbyGoogle/>
             </form>
    );
 };

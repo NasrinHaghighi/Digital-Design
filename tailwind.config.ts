@@ -17,7 +17,9 @@ const config: Config = {
              'bg':'var(--bg)',
             "softTextColor":"var(--softTextColor)",
             'icons':"var(--icons)",
-            "loginBg":"var(--loginBg)"
+            "loginBg":"var(--loginBg)",
+            "textColor":"var(--textColor)",
+            "gray400":"var(--gray400)",
           },
     },
   },

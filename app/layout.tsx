@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar/Navbar";
+
 import "./globals.css";
-import Footer from "@/components/Footer";
 
 
-import ThemeProviders from "../app/providers/ThemeProviders";
+
+import ThemeProviders from "./providers/ThemeProviders";
 import AuthProvider from "./providers/AuthProvider";
 
 
@@ -27,9 +27,9 @@ export default function RootLayout({
       <ThemeProviders>
       <div className="mx-auto max-w-screen-xl">
         <div className="max-w-screen-2xl m-auto p-10">
-        <Navbar />
+      
       {children}
-     <Footer />
+    
       </div>
       </div>
       </ThemeProviders>

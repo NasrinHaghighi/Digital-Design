@@ -22,6 +22,7 @@
   --softTextColor:#626262 ;
   --icons:rgb(213, 108, 245);
   --loginBg:#BEBEBE;
+  --gray400:rgb(156 163 175);
 }
 [data-theme="dark"] {
   --bg:rgb(19, 16, 28);
@@ -31,6 +32,7 @@
   --icons:rgb(135, 108, 245);
   --ligthBg:rgb(163, 159, 180);
   --loginBg:#EEEEEE;
+  --gray400:rgb(202, 210, 228);
 
 }
 

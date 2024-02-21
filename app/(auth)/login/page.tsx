@@ -4,7 +4,7 @@ import SigninbyGoogle from '../../../components/SigninbyGoogle/SigninbyGoogle'
 function Login() {
   return (
     <div>
-      <SigninbyGoogle />
+    <SigninbyGoogle />
     </div>
   )
 }
