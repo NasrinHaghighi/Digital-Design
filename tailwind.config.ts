@@ -19,7 +19,11 @@ const config: Config = {
             'icons':"var(--icons)",
             "loginBg":"var(--loginBg)",
             "textColor":"var(--textColor)",
-            "gray400":"var(--gray400)",
+            "light-blue":"var(--light-blue)",
+            "light-purple":"var(--light-purple)",
+            "light-pink":"var(--light-pink)",
+            "light-green":"var(--light-green)",
+          
           },
     },
   },

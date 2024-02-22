@@ -22,7 +22,11 @@
   --softTextColor:#626262 ;
   --icons:rgb(213, 108, 245);
   --loginBg:#BEBEBE;
-  --gray400:rgb(156 163 175);
+  --light-blue:rgb(186, 230, 253);
+  --light-purple:rgb(186, 156, 253);
+  --light-pink: rgb(253, 186, 210);
+  --light-green: rgb(149, 220, 149);
+  
 }
 [data-theme="dark"] {
   --bg:rgb(19, 16, 28);
@@ -33,6 +37,12 @@
   --ligthBg:rgb(163, 159, 180);
   --loginBg:#EEEEEE;
   --gray400:rgb(202, 210, 228);
+  --light-blue:rgb(77, 116, 152);
+  --light-purple: rgb(96, 75, 148);
+  --light-pink:rgb(148, 87, 96);
+  --light-green:rgb(108, 148, 108);
+
+ 
 
 }
 

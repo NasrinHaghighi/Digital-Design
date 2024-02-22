@@ -91,3 +91,8 @@ model Comment {
   userEmail  String
   user       User  @relation(fields: [userEmail], references: [email])
 }
+model Img {
+  id String @id @default(cuid()) @map("_id")
+  url       String
+  createdAt DateTime @default(now())
+}
