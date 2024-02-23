@@ -6,8 +6,8 @@ interface Res{
     
 }
 
-function Upload() {
-    const [file, setFile] = useState<File | null>(null );
+function Upload({setFile}:any) {
+    
 
     const handleFileChange = async(e: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = e.target.files && e.target.files[0];
@@ -20,7 +20,7 @@ function Upload() {
                 method: 'POST',
                 body: formData
             }).then(res=>res.json())
-           console.log(data)
+           setFile(data.secure_url)
           }
       };
 
@@ -31,7 +31,7 @@ function Upload() {
   return (
     <>
     <form onSubmit={handelSubmit}>
-    <input type="file" id="file" name="img" accept="image/*"  onChange={handleFileChange} style={{ display: "none" }} />
+    <input type="file" id="file" name="value" accept="image/*"  onChange={handleFileChange} style={{ display: "none" }} />
     <label htmlFor="file" className=' flex items-center gap-5'>
         <span className='text-green-800'>تصویر مورد نظر را اضافه کنید:</span><GrUploadOption className='text-red-800 text-4xl font-extrabold'/>
     </label>

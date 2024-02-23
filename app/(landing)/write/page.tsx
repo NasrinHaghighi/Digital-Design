@@ -1,5 +1,5 @@
 'use client';
-import React , { useState } from 'react'
+import React , { useState ,useEffect} from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ReactQuill from 'react-quill';
@@ -21,24 +21,33 @@ const SignupSchema = Yup.object().shape({
   });
 
 function WritePage() {
-   
-    const [value, setValue] = useState('');
-    const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true);
 
+
+    const [value, setValue] = useState('');
+    const [file, setFile] = useState<File | null>(null );
   
 
     const formik = useFormik({
         initialValues: {
           title: '',
           category: '',
-          description: '',
+          value: value,
+          file: file,
           
         },
         validationSchema: SignupSchema,
         onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+          console.log(JSON.stringify(values, null, 2));
         },
       });
+      useEffect(() => {
+         formik.setValues({
+            ...formik.values,
+            value: value,
+            file: file
+        });
+    }, [value, file]);
   return (
     <form onSubmit={formik.handleSubmit}>
     <div className='container pt-12 pb-12 mt-10'>
@@ -80,7 +89,7 @@ function WritePage() {
             <div onClick={()=>setOpen(!open)}><CiCirclePlus className='text-green-800 text-5xl font-extrabold'/></div>
             {open &&
             <div className=''>
-              <Upload/>
+              <Upload setFile={setFile} />
                   {/* <input type="file" id="file" name="img" accept="image/*"  onChange={handleFileChange} style={{ display: "none" }} />
                 <label htmlFor="file" className=' flex items-center gap-5'>
                     <span className='text-green-800'>تصویر مورد نظر را اضافه کنید:</span><GrUploadOption className='text-red-800 text-4xl font-extrabold'/>
@@ -95,7 +104,7 @@ function WritePage() {
                     
           </div>
           
-<ReactQuill theme="snow" value={value} onChange={setValue}   modules={modules}
+<ReactQuill theme="snow" value={value} onChange={setValue}   modules={modules} 
       formats={formats}/>
       <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6'>submite</button>
     </div>
