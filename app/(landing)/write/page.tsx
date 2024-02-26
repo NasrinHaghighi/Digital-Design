@@ -6,6 +6,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { CiCirclePlus } from "react-icons/ci";
 import Upload from '@/components/Write/Upload';
+import { useRouter } from 'next/navigation';
 
 
 // const SignupSchema = Yup.object().shape({
@@ -26,6 +27,7 @@ import Upload from '@/components/Write/Upload';
 
 
 function WritePage() {
+  const router = useRouter();
   const [open, setOpen] = useState(true);
   const [value, setValue] = useState('');
   const [file, setFile] = useState<File | null>(null );
@@ -60,6 +62,7 @@ const slugify = (text: string) => {
         //validationSchema: SignupSchema,
         onSubmit: values => {
           handelSubmit(values);
+router.push('/');
         },
       });
       useEffect(() => {
@@ -80,7 +83,7 @@ const slugify = (text: string) => {
             id="title"
             name="title"
             type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="عنوان" required 
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="عنوان" required 
             onChange={formik.handleChange}
             value={formik.values.title}
           />
@@ -119,7 +122,8 @@ const slugify = (text: string) => {
                     
           </div>
           
-<ReactQuill theme="snow" value={value} onChange={setValue}/>
+   <ReactQuill theme="snow" value={value} onChange={setValue}/>
+   <br/>
       <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6' type='submit'>submite</button>
     </div>
     </form>

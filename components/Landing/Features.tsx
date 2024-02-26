@@ -6,8 +6,13 @@ function Features() {
   return (
     <div className='container pt-12 pb-12 mt-10'>
        <h1 className='text-4xl font-bold p-8 text-center'>تفاوت طراحی دیجیتال و طراحی گرافیک چیست؟<span className='underline '></span></h1>
-       <div className="flex flex-row justify-around items-center gap-10 py-10">
+       <div className="flex flex-col md:flex-row justify-around items-center gap-10 py-10">
        
+       
+
+        <div className="flex-1 md-order-1">
+            <Image src={Banner} alt='logo' className='object-cover rounded-md h-[400px] w-[400px]' />
+        </div>
         <div className="flex-1 ">  
         
         <h2 className='text-2xl font-bold p-8 text-rigth'>تعریف واژه دیجیتال (Digital) </h2>
@@ -16,10 +21,6 @@ function Features() {
         
         <button className='flex m-auto p-2 rounded-md bg-icons mt-10'
 > ادامه مطلب</button>
-        </div>
-
-        <div className="flex-1 flex justify-end items-center">
-            <Image src={Banner} alt='logo' className='object-cover rounded-md h-[400px] w-[400px]' />
         </div>
        </div>
     </div>

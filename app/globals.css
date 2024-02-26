@@ -26,6 +26,7 @@
   --light-purple:rgb(186, 156, 253);
   --light-pink: rgb(253, 186, 210);
   --light-green: rgb(149, 220, 149);
+  --input-bg:rgb(246, 246, 252);
   
 }
 [data-theme="dark"] {
@@ -41,6 +42,7 @@
   --light-purple: rgb(96, 75, 148);
   --light-pink:rgb(148, 87, 96);
   --light-green:rgb(108, 148, 108);
+  --input-bg:rgb(246, 246, 252);
 
  
 
@@ -69,5 +71,17 @@ a{
   min-height: 100vh;
   background-color: var(--bg);
   color: var(--textColor);
+}
+.quill{
+border: none !important;
+border-radius: 10px !important;
+  background-color: #ffff !important;
+  outline: none !important;
+  height: 500px;
+  box-shadow: 0 0 0 2px #000000;
+}
+.ql-toolbar .ql-snow{
+  border-radius:10px !important;
+  outline: none !important;
 }
 

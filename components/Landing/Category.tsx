@@ -41,9 +41,9 @@ const getData = async () => {
 
   return (
     <div className='container pt-12 pb-12 mt-6 mb-6' >
-        <h1 className='text-xl'>آخرین پستها</h1>
+        <h1 className='text-xl'>پستها</h1>
 
-        <div className="flex justify-center items-center gap-20 my-10">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center gap-4 p-4">
           
           {data?.map((item:any)=>{
             const CatBg = () => {
@@ -51,7 +51,7 @@ const getData = async () => {
   
             }
             return(
-              <Link key={item._id} href='/' className={`${bgCat(item.title)} rounded-md p-4 flex justify-center gap-4  items-center w-36`}>
+              <Link key={item._id} href={`/blog?cat=${item.slug}`} className={`${bgCat(item.title)} rounded-md p-4 flex justify-center gap-4  items-center md:w-36 w-52 lg:w-52 m-auto mb-5`}>
                  <span>{item.title}</span>
                  <div className="rounded-full overflow-hidden  w-10 h-10 ">
                  <Image src={`/img/${item.img}`} width={40} height={40} alt='logo'/></div>

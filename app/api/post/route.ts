@@ -14,6 +14,8 @@ export const GET = async () => {
     return new NextResponse(JSON.stringify({message:'error'}), {status: 500})
    }
 }
+
+/*CREATE NEW POST*/
 export const POST = async (req: Request) => {
     const session = await getAuthSession();
  
