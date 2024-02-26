@@ -2,9 +2,7 @@
 
 import React,{useState} from 'react'
 import { GrUploadOption } from "react-icons/gr";
-interface Res{
-    
-}
+
 
 function Upload({setFile}:any) {
     

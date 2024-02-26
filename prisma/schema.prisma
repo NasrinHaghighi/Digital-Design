@@ -79,14 +79,14 @@ model Post {
   cat       Category @relation(fields: [catSlug], references: [slug])
   userEmail  String
   user       User  @relation(fields: [userEmail], references: [email])
-  comments   Comment[]   
+ // comments   Comment[]   
 }
 model Comment {
   id        String   @id @default(cuid()) @map("_id")
   createdAt   DateTime  @default(now())
   des       String
   postSlug  String
-  post      Post @relation(fields: [postSlug], references: [slug])
+  //post      Post @relation(fields: [postSlug], references: [slug])
   
   userEmail  String
   user       User  @relation(fields: [userEmail], references: [email])

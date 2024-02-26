@@ -8,26 +8,47 @@ import { CiCirclePlus } from "react-icons/ci";
 import Upload from '@/components/Write/Upload';
 
 
-const SignupSchema = Yup.object().shape({
-    title: Yup.string()
-      .min(10, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-  category: Yup.string()
-      .min(10, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
-   description: Yup.string()
-  });
+// const SignupSchema = Yup.object().shape({
+//     title: Yup.string()
+//       .min(10, 'Too Short!')
+//       .max(50, 'Too Long!')
+//       .required('Required'),
+//   category: Yup.string()
+//       .min(10, 'Too Short!')
+//       .max(50, 'Too Long!')
+//       .required('Required'),
+//    description: Yup.string()
+//   });
+
+
+ 
+  
+
 
 function WritePage() {
   const [open, setOpen] = useState(true);
-
-
-    const [value, setValue] = useState('');
-    const [file, setFile] = useState<File | null>(null );
+  const [value, setValue] = useState('');
+  const [file, setFile] = useState<File | null>(null );
   
+const slugify = (text: string) => {
+ text= text.toLowerCase().trim().replace(/\s+/g, '-')
+  return text;
+}
 
+  const handelSubmit = async(values:any) => {
+      const res = await fetch('http://localhost:3000/api/post', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        slug: slugify(values.title),
+        title:values.title,
+        des:values.value,
+        img:values.file,
+        catSlug: values.category,
+      }),
+    })
+    console.log(res)
+  }
     const formik = useFormik({
         initialValues: {
           title: '',
@@ -36,9 +57,9 @@ function WritePage() {
           file: file,
           
         },
-        validationSchema: SignupSchema,
+        //validationSchema: SignupSchema,
         onSubmit: values => {
-          console.log(JSON.stringify(values, null, 2));
+          handelSubmit(values);
         },
       });
       useEffect(() => {
@@ -90,13 +111,7 @@ function WritePage() {
             {open &&
             <div className=''>
               <Upload setFile={setFile} />
-                  {/* <input type="file" id="file" name="img" accept="image/*"  onChange={handleFileChange} style={{ display: "none" }} />
-                <label htmlFor="file" className=' flex items-center gap-5'>
-                    <span className='text-green-800'>تصویر مورد نظر را اضافه کنید:</span><GrUploadOption className='text-red-800 text-4xl font-extrabold'/>
-                </label> */}
-            
-            
-              
+                     
            
            </div>
            }
@@ -104,9 +119,8 @@ function WritePage() {
                     
           </div>
           
-<ReactQuill theme="snow" value={value} onChange={setValue}   modules={modules} 
-      formats={formats}/>
-      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6'>submite</button>
+<ReactQuill theme="snow" value={value} onChange={setValue}/>
+      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6' type='submit'>submite</button>
     </div>
     </form>
   )
@@ -114,18 +128,18 @@ function WritePage() {
 
 export default WritePage
 
-const modules = {
-    toolbar: [
-      [{ 'header': [1, 2, false] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-      [{ 'direction': 'rtl' }] // this is rtl support
-    ],
-  }
+// const modules = {
+//     toolbar: [
+//       [{ 'header': [1, 2, false] }],
+//       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+//       [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+//       [{ 'direction': 'rtl' }] // this is rtl support
+//     ],
+//   }
 
-  const formats = [
-    'header',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link', 'image'
-  ]
+//   const formats = [
+//     'header',
+//     'bold', 'italic', 'underline', 'strike', 'blockquote',
+//     'list', 'bullet', 'indent',
+//     'link', 'image'
+//   ]
