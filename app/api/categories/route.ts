@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
+
+//GET ALL CATEGORY//
 export const GET = async () => {
    try{
        const categories = await prisma?.category.findMany()

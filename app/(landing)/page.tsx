@@ -2,7 +2,7 @@ import Category from "@/components/Landing/Category";
 import Features from "@/components/Landing/Features";
 import PostList from "@/components/Landing/PostList";
 import Sidebar from "@/components/Landing/Sidebar";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
     <Sidebar />
    </div>
    <div className="md:col-span-8 col-span-12 order-2 md:order-2">
-    <PostList />
+    <PostList page={1} cat={''} />
    </div>
   </div>
   </>
