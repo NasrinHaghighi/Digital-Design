@@ -18,7 +18,7 @@ async function PostList({page, cat}:any) {
 
   const {posts , count} = await getData({page, cat})
 const POST_PER_PAGE=2
-console.log('count'+count,'page'+page)
+console.log('count'+count,'page'+page, 'cat'+cat)
   const hasPrev = POST_PER_PAGE * (page - 1) > 0
   const hasNext = POST_PER_PAGE * (page - 1)+POST_PER_PAGE  < count
 
@@ -29,7 +29,7 @@ console.log('count'+count,'page'+page)
        {posts?.map((item: any) => {
         return <PostListItem item={item} key={item.id} />
       })} 
-      <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext}/>
+      <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} cat={cat}/>
       </div>
 
     </>
