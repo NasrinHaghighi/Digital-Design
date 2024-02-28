@@ -41,7 +41,7 @@ const getData = async () => {
 
   return (
     <div className='container pt-12 pb-12 mt-6 mb-6' >
-        <h1 className='text-xl'>پستها</h1>
+        <h1 className='text-2xl mb-6'>دسته بندی ها</h1>
 
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center gap-4 p-4">
           

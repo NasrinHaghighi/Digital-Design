@@ -1,26 +1,41 @@
 import React from 'react'
 import Image from 'next/image'
 import Banner from '../../public/img/culture.png'
+import Link from 'next/link'
 
-function Features() {
+
+/*GETDATA FUNC*/ 
+const getData = async () => {
+  const res=await fetch(`http://localhost:3000/api/post`
+  , {cache: 'no-store'})
+
+  if(!res.ok)  throw new Error('Network response was not ok')
+
+  return res.json()
+}
+/* COMPONENT*/ 
+async function Features() {
+  const {lastPost} = await getData()
+  //console.log('lastPost', JSON.stringify(lastPost))
   return (
     <div className='container pt-12 pb-12 mt-10'>
-       <h1 className='text-4xl font-bold p-8 text-center'>تفاوت طراحی دیجیتال و طراحی گرافیک چیست؟<span className='underline '></span></h1>
+       <h1 className='text-4xl font-black p-8 text-center'>{lastPost.title}<span className='underline '></span></h1>
        <div className="flex flex-col md:flex-row justify-around items-center gap-10 py-10">
        
        
 
         <div className="flex-1 md-order-1">
-            <Image src={Banner} alt='logo' className='object-cover rounded-md h-[400px] w-[400px]' />
+            <Image width={400} height={400} src={lastPost.img} alt='logo' className='object-cover rounded-md h-[400px] w-[400px]' />
         </div>
         <div className="flex-1 ">  
         
-        <h2 className='text-2xl font-bold p-8 text-rigth'>تعریف واژه دیجیتال (Digital) </h2>
-        <p className=''>
-        شاید تا همین جا هم تفاوت بین طراحی دیجیتال و طراحی گرافیک برایتان جا افتاده باشد. اما بیایید کمی دقیق‌تر در مورد آن صحبت کنیم. کلی‌ترین تفاوتی که می‌توان در مورد این دو شاخۀ طراحی گفت، این است که طراحی گرافیک، طراحی برای محصولات چاپی مثل مجله، پوستر، بَنِر، بروشور و … است. در مقابل، طراحی دیجیتال، طراحی برای محتوای دیجیتالی است که قرار است در دستگاه‌های دیجیتالی نمایش داده شود؛ مثل طراحی وب‌سایت، تجربۀ کاربری، رابط کاربری و … .</p>
+        <div dangerouslySetInnerHTML={{ __html: lastPost.des.substring(0, 650) + '...' }} />
         
-        <button className='flex m-auto p-2 rounded-md bg-icons mt-10'
-> ادامه مطلب</button>
+    
+       
+       <div className='text-sm flex justify-end items-center '>
+          <Link href={lastPost.slug} className='border-b-2 border-gray-500 hover:border-red-500 py-1 hover:text-red-500' >ادامه مطلب</Link>
+        </div>
         </div>
        </div>
     </div>

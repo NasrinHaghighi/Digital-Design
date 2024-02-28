@@ -23,6 +23,8 @@ const config: Config = {
             "light-purple":"var(--light-purple)",
             "light-pink":"var(--light-pink)",
             "light-green":"var(--light-green)",
+            "red-btn":"var(--red-btn)",
+            "iconDisable": "var(--iconDisable)",
           
           },
     },

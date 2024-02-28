@@ -21,13 +21,14 @@
   --softBg:#f0f0f0;
   --softTextColor:#626262 ;
   --icons:rgb(213, 108, 245);
+  --iconDisable:rgba(213, 108, 245, 0.527);
   --loginBg:#BEBEBE;
   --light-blue:rgb(186, 230, 253);
   --light-purple:rgb(186, 156, 253);
   --light-pink: rgb(253, 186, 210);
   --light-green: rgb(149, 220, 149);
   --input-bg:rgb(246, 246, 252);
-  
+  --red-btn:#ff5757;
 }
 [data-theme="dark"] {
   --bg:rgb(19, 16, 28);
@@ -35,6 +36,7 @@
   --softBg:#1f273a;
   --softTextColor:#a6a6a6;
   --icons:rgb(135, 108, 245);
+  --iconDisable:rgba(113, 94, 189, 0.445);
   --ligthBg:rgb(163, 159, 180);
   --loginBg:#EEEEEE;
   --gray400:rgb(202, 210, 228);
@@ -43,6 +45,7 @@
   --light-pink:rgb(148, 87, 96);
   --light-green:rgb(108, 148, 108);
   --input-bg:rgb(246, 246, 252);
+  --red-btn:#ff0000;
 
  
 

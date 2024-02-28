@@ -79,6 +79,8 @@ model Post {
   cat       Category @relation(fields: [catSlug], references: [slug])
   userEmail  String
   user       User  @relation(fields: [userEmail], references: [email])
+  userName  String?
+ 
  // comments   Comment[]   
 }
 model Comment {

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import PostListItem from './PostListItem'
+import Pagination from './Pagination'
 
 
 const getData = async ({page, cat}:any) => {
@@ -15,16 +16,21 @@ const getData = async ({page, cat}:any) => {
 //COMPONENT//
 async function PostList({page, cat}:any) {
 
-  const data = await getData({page, cat})
-console.log('data'+ JSON.stringify(data))
+  const {posts , count} = await getData({page, cat})
+const POST_PER_PAGE=2
+console.log('count'+count,'page'+page)
+  const hasPrev = POST_PER_PAGE * (page - 1) > 0
+  const hasNext = POST_PER_PAGE * (page - 1)+POST_PER_PAGE  < count
+
   return (
     <>
-      <h1 className='text-xl'>آخرین پستها</h1>
-      <br />
-       {data?.posts.map((item: any) => {
+    <div className=''>
+    
+       {posts?.map((item: any) => {
         return <PostListItem item={item} key={item.id} />
       })} 
-
+      <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext}/>
+      </div>
 
     </>
   )

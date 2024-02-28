@@ -51,6 +51,7 @@ const slugify = (text: string) => {
     })
     console.log(res)
   }
+  
     const formik = useFormik({
         initialValues: {
           title: '',
@@ -122,7 +123,7 @@ router.push('/');
                     
           </div>
           
-   <ReactQuill theme="snow" value={value} onChange={setValue}/>
+   <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats} />
    <br/>
       <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6' type='submit'>submite</button>
     </div>
@@ -132,18 +133,23 @@ router.push('/');
 
 export default WritePage
 
-// const modules = {
-//     toolbar: [
-//       [{ 'header': [1, 2, false] }],
-//       ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-//       [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-//       [{ 'direction': 'rtl' }] // this is rtl support
-//     ],
-//   }
+const modules = {
+  toolbar: [
+    [{ color: ['red', 'blue', 'green', 'yellow', 'black'] }],
+    [{ 'header': [1, 2, false] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    ["link", "image"],
+    ["clean"],
 
-//   const formats = [
-//     'header',
-//     'bold', 'italic', 'underline', 'strike', 'blockquote',
-//     'list', 'bullet', 'indent',
-//     'link', 'image'
-//   ]
+
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+    [{ 'direction': 'rtl' }]
+    // this is rtl support
+  ],
+}
+
+
+
+  const formats = ["header","bold","italic","underline","strike","blockquote",
+    "list","bullet","indent","link","image","color","clean",
+  ];
