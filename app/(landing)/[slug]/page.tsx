@@ -30,7 +30,7 @@ const getData = async ( slug : any) => {
        </div>
        <div className="col-span-8 ">  
        
-       <h2 className='text-5xl font-bold py-8 text-rigth'>{data?.title}</h2>
+       <h2 className='text-5xl font-bold py-8 text-rigth leading-relaxed'>{data?.title}</h2>
 
        <div><span>{data?.userName ? data?.userName : ''}   </span><span>{data?.createdAt.substring(0, 10)} </span></div>
            </div>
@@ -41,7 +41,7 @@ const getData = async ( slug : any) => {
     <Sidebar/>
    </div>
    <div className="md:col-span-8 col-span-12 order-2 md:order-2">
-   <div dangerouslySetInnerHTML={{ __html: data?.des || '' }} />
+   <div className='leading-relaxed' dangerouslySetInnerHTML={{ __html: data?.des || '' }} />
    </div>
   </div>
     </div>

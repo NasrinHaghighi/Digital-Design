@@ -138,18 +138,38 @@ const modules = {
     [{ color: ['red', 'blue', 'green', 'yellow', 'black'] }],
     [{ 'header': [1, 2, false] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    ["link", "image"],
+    ['link', 'image', 'code-block'], 
     ["clean"],
+    [{'header': [1,2,3]},],
 
 
     [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
     [{ 'direction': 'rtl' }]
     // this is rtl support
   ],
+ 
 }
 
 
 
-  const formats = ["header","bold","italic","underline","strike","blockquote",
-    "list","bullet","indent","link","image","color","clean",
-  ];
+const formats = [
+  "header",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "indent",
+  "link",
+  "image",
+  "color",
+  "clean",
+  "code-block", // Include "code-block" format here
+  "bulleted-list",
+  "numbered-list"
+];
+  
+
+  

@@ -4,6 +4,7 @@ import  Insta  from '../../public/img/instagram.png'
 import  Tele  from '../../public/img/telegram.png'
 import NavbarLinks from './NavbarLinks'
 import NavbarRes from './NavbarRes'
+import Link from 'next/link'
 function Navbar() {
   return (
     <div className='flex max-w-screen-xl justify-between items-center
@@ -14,7 +15,7 @@ function Navbar() {
         <div className='flex-1 md:hidden '>
       <NavbarRes/>
         </div>
-         <div className=' text-center '>logo</div>
+         <div className=' text-center '><Link href='/'>logo</Link></div>
       
 
         <div className='hidden lg:flex flex-1 justify-end  '>
