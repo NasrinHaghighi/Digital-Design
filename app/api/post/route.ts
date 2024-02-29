@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
 
-import { PrismaClient } from '@prisma/client';
+//import { PrismaClient } from '@prisma/client';
 import { getAuthSession } from '../auth/[...nextauth]/route';
+import prisma from '../../../utils/connect'
 
 
-const prisma = new PrismaClient();
+//const prisma = new PrismaClient();
 
 //get all posts//
 export const GET = async (req: any) => {

@@ -5,8 +5,7 @@ import React from 'react'
 
 function Pagination({page,hasPrev, hasNext, cat}:{page:number,hasPrev:boolean,hasNext:boolean, cat:string}) {
     const router=useRouter()
-    console.log('hasPrev', hasPrev);
-    console.log('hasNext', hasNext);
+   
   return (
    <>
    <div className='flex justify-between items-center gap-10 py-10'>

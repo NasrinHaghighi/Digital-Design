@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
- import { PrismaClient } from '@prisma/client';
-
+ //import { PrismaClient } from '@prisma/client';
+ import prisma from '../../../utils/connect'
 // Initialize Cloudinary with your configuration
 import cloudinary from 'cloudinary';
 
@@ -12,7 +12,7 @@ cloudinary.v2.config({
     api_secret: 'JgLyP_FxKHrpvdcLGbs6IAC84t4'
 });
 
-const prisma = new PrismaClient();
+//const prisma = new PrismaClient();
 
 export const POST = async (req: any) => {
     try {

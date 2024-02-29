@@ -6,30 +6,10 @@ import { PrismaClient } from "@prisma/client"
 import { getServerSession } from "next-auth"
 
 //import prisma from "@/utils/connect"
+import { options } from "@/utils/auth"
 
-interface Props{
- adapter:any, providers: any; secret: string;
-}
 
-const prisma = new PrismaClient()
-const options:Props = {
-  adapter: PrismaAdapter(prisma),
-    providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID?? '',
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET?? '',
-            authorization: {
-                params: {
-                  prompt: "consent",
-                  access_type: "offline",
-                  response_type: "code"
-                }
-              }
-        })
-        
-    ],
-    secret: process.env.SECRET?? '',
-}
+
 
 export const getAuthSession = () => getServerSession(options)
 const handler= NextAuth( options)
