@@ -19,7 +19,6 @@ function NavbarRes() {
 {open && <div className={`mt-14 z-10 mb-20 absolute w-full h-[500px] text-center pt-8 pb-8 flex flex-col gap-5 text-xl rounded-md ${resolvedTheme === 'dark' ? 'bg-white' : 'bg-black'} ${resolvedTheme === 'dark' ?  'text-black':'text-white' } `}>
 <Link href='/' > خانه</Link>
 <Link href='/'> درباره ما</Link>
-<Link href='/'> ار تباط با ما</Link>
 <AuthLinks />
     
     </div>}

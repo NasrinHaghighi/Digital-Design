@@ -7,6 +7,9 @@ import 'react-quill/dist/quill.snow.css';
 import { CiCirclePlus } from "react-icons/ci";
 import Upload from '@/components/Write/Upload';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+import WriteModal from '@/components/Write/WriteModal';
 
 
 // const SignupSchema = Yup.object().shape({
@@ -28,7 +31,19 @@ import { useRouter } from 'next/navigation';
 
 function WritePage() {
   const router = useRouter();
+  const session =useSession()
+  const role =session.data?.user.role
+  useEffect(() => {
+//     if (role !== 'user') {
+// router.push('/')
+//     }
+
+  })
+
+
+
   const [open, setOpen] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const [value, setValue] = useState('');
   const [file, setFile] = useState<File | null>(null );
   
@@ -51,6 +66,7 @@ const slugify = (text: string) => {
     })
     console.log(res)
   }
+
   
     const formik = useFormik({
         initialValues: {
@@ -73,62 +89,76 @@ router.push('/');
             file: file
         });
     }, [value, file]);
+    useEffect(() => {
+      
+    },[value])
   return (
-    <form onSubmit={formik.handleSubmit}>
-    <div className='container pt-12 pb-12 mt-10'>
-    <h1 className='text-4xl font-bold p-8 text-center'>ایجاد متن جدید<span className='underline '></span></h1>
 
-    <div className='mb-8'>
-        <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-textColor">عنوان پست جدید</label>
+    <div className='container pt-12 pb-12 mt-10'>
+      <h1 className='text-4xl font-bold p-8 text-center'>ایجاد متن جدید<span className='underline '></span></h1>
+
+      <button className="bg-rose-500 text-white rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
+      مشاهده متن
+      </button>
+      
+      <br />
+      <br />
+
+      <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={formik.values} />
+      <form onSubmit={formik.handleSubmit}>
+        <div className='mb-8'>
+          <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-textColor">عنوان پست جدید</label>
           <input
             id="title"
             name="title"
             type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="عنوان" required 
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="عنوان" required
             onChange={formik.handleChange}
             value={formik.values.title}
           />
           {formik.touched.title && formik.errors.title ? (
-                        <div className="input feedback text-rose-600">{formik.errors.title}</div>
-                    ) : null}
-          </div>
+            <div className="input feedback text-rose-600">{formik.errors.title}</div>
+          ) : null}
+        </div>
 
-          <div className=' mb-8'>
-        <label htmlFor="category" className="block mb-2 text-sm font-medium text-textColor">دسته بندی</label>
+        <div className=' mb-8'>
+          <label htmlFor="category" className="block mb-2 text-sm font-medium text-textColor">دسته بندی</label>
           <input
             id="category"
             name="category"
             type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="دسته بندی" required 
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="دسته بندی" required
             onChange={formik.handleChange}
             value={formik.values.category}
           />
           {formik.touched.category && formik.errors.category ? (
-                        <div className="input feedback text-rose-600">{formik.errors.category}</div>
-                    ) : null}
-                    
-          </div>
-          <div className=' mb-8'>
+            <div className="input feedback text-rose-600">{formik.errors.category}</div>
+          ) : null}
+
+        </div>
+        <div className=' mb-8'>
           <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-textColor"> اضافه کردن تصویر</label>
-         <div className=' flex felx-row justify-start items-center gap-5'  >
-            <div onClick={()=>setOpen(!open)}><CiCirclePlus className='text-green-800 text-5xl font-extrabold'/></div>
+          <div className=' flex felx-row justify-start items-center gap-5'  >
+            <div onClick={() => setOpen(!open)}><CiCirclePlus className='text-green-800 text-5xl font-extrabold' /></div>
             {open &&
-            <div className=''>
-              <Upload setFile={setFile} />
-                     
-           
-           </div>
-           }
-            </div>
-                    
+              <div className=''>
+                <Upload setFile={setFile} />
+
+
+              </div>
+            }
           </div>
-          
-   <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats} />
-   <br/>
-      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6' type='submit'>submite</button>
+
+        </div>
+
+        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats} />
+        <br />
+        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6' type='submit'>submite</button>
+      </form>
     </div>
-    </form>
+
   )
+
 }
 
 export default WritePage

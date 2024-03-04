@@ -21,6 +21,7 @@ export const options: NextAuthOptions = {
         signIn: '/signin',
     },
     adapter: PrismaAdapter(prisma) as Adapter,
+    secret: process.env.SECRET ?? 'secret',
     session: {
         strategy: 'jwt'
     },
@@ -48,37 +49,64 @@ export const options: NextAuthOptions = {
                 if (!credentials?.email || !credentials?.password) {
                     return null;
                 }
-            
+
                 const existingUser = await prisma.user.findUnique({
                     where: { email: credentials.email }
                 });
-            
+
                 if (!existingUser) {
                     return null;
                 }
-            
-                console.log('existingUser', existingUser);
-            
+
+                //console.log('existingUser', existingUser);
+
                 if (existingUser.password) {
                     const passwordMatch = await compare(credentials.password, existingUser.password);
-                    console.log('passwordMatch', passwordMatch);
-            
+                   // console.log('passwordMatch', passwordMatch);
+
                     if (!passwordMatch) {
                         return null;
                     }
                 }
-            
+
                 return {
-                id: existingUser.id,
-                email: existingUser.email,
-                pasword: existingUser.password
-                  
+                    id: existingUser.id,
+                    email: existingUser.email,
+                    name: existingUser.name,
+                    role: existingUser.role
                 };
             }
         }),
     ],
-    secret: process.env.SECRET ?? '',
+    callbacks: {
+
+
+        async jwt({ token, user }) {
+           
+            if (user) {
+                return {
+                    ...token,
+                    role: user.role,
+                }
+            }
+            return token
+        },
+        async session({ session, token }) {
+            return {
+                ...session,
+               user: {
+                ...session.user,
+                  role: token.role
+               }
+            }
+            return session
+        },
+
+    }
+
 }
+
+
 
 
 

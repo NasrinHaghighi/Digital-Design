@@ -1,14 +1,20 @@
 import Image from 'next/image'
 import React from 'react'
-import  Insta  from '../../public/img/instagram.png'
-import  Tele  from '../../public/img/telegram.png'
+import  Linkedin  from '../../public/img/linked.png'
 import NavbarLinks from './NavbarLinks'
 import NavbarRes from './NavbarRes'
 import Link from 'next/link'
-function Navbar() {
+import { getServerSession } from 'next-auth'
+import { options } from '@/utils/auth'
+import Welcome from './Welcome'
+
+
+async function Navbar() {
+ const sesstion = await getServerSession(options)
+ console.log('sesstttion', sesstion?.user)
   return (
-    <div className='flex max-w-screen-xl justify-between items-center
-    h-14'>
+    <div className='flex max-w-screen-xl justify-between items-center align-baseline 
+    h-20 '>
           <div className='flex-1 hidden md:flex'>
             <NavbarLinks />
         </div>
@@ -18,10 +24,13 @@ function Navbar() {
          <div className=' text-center '><Link href='/'>logo</Link></div>
       
 
-        <div className='hidden lg:flex flex-1 justify-end  '>
-            <Image src={Insta} alt='logo' width={30} height={30} style={{marginLeft: 10}}  />
+        <div className='hidden lg:flex flex-1 justify-end  gap-5 '>
+       
            
-            <Image src={Tele} alt='logo' width={30} height={30} style={{marginLeft: 10}} />
+          
+           
+           <Welcome />
+            <Image src={Linkedin} alt='logo' width={80} height={15} style={{marginLeft: 10}} />
         </div>
     </div>
   )

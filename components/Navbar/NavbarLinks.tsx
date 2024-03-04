@@ -10,7 +10,7 @@ function NavbarLinks() {
     <div className='text-left  justify-start gap-5 items-center font-semibold text-lg md:flex'>
 <Link href='/' > خانه</Link>
 <Link href='/'> درباره ما</Link>
-<Link href='/'> ار تباط با ما</Link>
+
 <AuthLinks />
 <SwichToggle />
     </div>

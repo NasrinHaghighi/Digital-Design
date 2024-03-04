@@ -29,6 +29,7 @@ const config: Config = {
           },
     },
   },
+  safelist: ['animate-[slide-right_1s_ease-in-out]', 'animate-[slide-right_1s_ease-in-out]'],
   plugins: [],
 };
 export default config;
