@@ -10,8 +10,10 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import WriteModal from '@/components/Write/WriteModal';
+import ImageResize from 'quill-image-resize-module-react';
+import Quill from 'quill';
 
-
+Quill.register('modules/imageResize', ImageResize);
 // const SignupSchema = Yup.object().shape({
 //     title: Yup.string()
 //       .min(10, 'Too Short!')
@@ -25,11 +27,15 @@ import WriteModal from '@/components/Write/WriteModal';
 //   });
 
 
- 
-  
+
 
 
 function WritePage() {
+  
+
+
+
+
   const router = useRouter();
   const session =useSession()
   const role =session.data?.user.role
@@ -90,17 +96,18 @@ router.push('/');
         });
     }, [value, file]);
     useEffect(() => {
-      
+
     },[value])
   return (
 
     <div className='container pt-12 pb-12 mt-10'>
       <h1 className='text-4xl font-bold p-8 text-center'>ایجاد متن جدید<span className='underline '></span></h1>
-
-      <button className="bg-rose-500 text-white rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
+<div className='flex justify-center gap-10'>
+      <button className="bg-rose-500 text-white w-36 rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
       مشاهده متن
       </button>
-      
+      <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit'> ارسال</button>
+     </div>
       <br />
       <br />
 
@@ -151,9 +158,9 @@ router.push('/');
 
         </div>
 
-        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats} />
+        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****'/>
         <br />
-        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6' type='submit'>submite</button>
+        
       </form>
     </div>
 
@@ -165,40 +172,51 @@ export default WritePage
 
 const modules = {
   toolbar: [
-    [{ color: ['red', 'blue', 'green', 'yellow', 'black'] }],
-    [{ 'header': [1, 2, false] }],
+    [{ header: '1' }, { header: '2' }, { font: [] }],
+    [{ size: [] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    ['link', 'image', 'code-block'], 
-    ["clean"],
-    [{'header': [1,2,3]},],
-
-
-    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-    [{ 'direction': 'rtl' }]
-    // this is rtl support
+    [
+      { list: 'ordered' },
+      { list: 'bullet' },
+      { indent: '-1' },
+      { indent: '+1' }
+    ],
+    ['link', 'image', 'video'],
+    ['clean']
   ],
- 
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false
+  },
+  imageResize: {
+    parchment: Quill.import('parchment'),
+    modules: ['Resize', 'DisplaySize']
+  }
 }
 
 
 
+
 const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "color",
-  "clean",
+  'header',
+  'font',
+  'size',
+  'bold',
+  'italic',
+  'underline',
+  'strike',
+  'blockquote',
+  'list',
+  'bullet',
+  'indent',
+  'link',
+  'image',
+  'video',
   "code-block", // Include "code-block" format here
   "bulleted-list",
-  "numbered-list"
+  "numbered-list",
+  "width" ,
+  
 ];
   
 

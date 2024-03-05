@@ -27,7 +27,7 @@ const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
 
             <br/>            
             {values.title && values.value  && values.file ? (
-                <div className=' bg-white rounded-md h-full max-h-[80vh] overflow-y-auto p-5 m-5'>
+                <div className=' bg-white rounded-md  max-h-[80vh] overflow-y-auto p-5 m-5'>
                     <div className="grid grid-flow-col justify-around items-center w-l ">
                        
                         <div className="col-span-4 mb-10">

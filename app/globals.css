@@ -14,6 +14,72 @@
        
   /* Add more src lines for additional font formats if needed */
 }
+#root {
+  margin: 1rem 4rem;
+}
+.quill{
+  
+border-radius: 10px !important;
+  background-color: #ffff !important;
+  outline: none !important;
+  height: auto !important;
+  border: 1px solid rgb(133, 128, 128) !important;
+ 
+  box-shadow: none !important;
+
+}
+ .ql-container {
+  border: none !important;
+
+ 
+}
+.ql-conainer .ql-snow {
+border: none !important;
+outline: none !important;
+
+}
+
+/* Snow Theme */
+ .ql-snow .ql-toolbar {
+  display: block;
+  background: #eee3e3 !important;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-radius: 10px !important;
+}
+.ql-editor {
+  text-align: right !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  outline: none !important;
+  height: 500px !important;
+  border-radius: 10px !important;
+}
+.ql-editor .ql.blank{
+  outline: none !important;
+  border: none !important;
+
+}
+/* .ql-editor p{
+  min-height: 18em;
+  text-align:  center !important;
+} */
+
+ .ql-clipboard {
+  position: absolute;
+ text-align: center !important;
+ margin: auto !important;
+
+}
+.ql-toolbar.ql-snow {
+
+ margin: auto !important;
+
+}
+
+
+
 :root {
   --font-family-body: 'vazir', sans-serif;
   --bg:rgb(246, 246, 252);
@@ -75,7 +141,7 @@ a{
   background-color: var(--bg);
   color: var(--textColor);
 }
-.quill{
+/* .quill{
 border: none !important;
 border-radius: 10px !important;
   background-color: #ffff !important;
@@ -86,5 +152,5 @@ border-radius: 10px !important;
 .ql-toolbar .ql-snow{
   border-radius:10px !important;
   outline: none !important;
-}
+} */
 
