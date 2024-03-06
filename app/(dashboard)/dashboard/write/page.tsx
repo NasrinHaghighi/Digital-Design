@@ -100,7 +100,7 @@ router.push('/');
     },[value])
   return (
 
-    <div className='container pt-12 pb-12 mt-10'>
+    <div className='container pb-12 '>
       <h1 className='text-4xl font-bold p-8 text-center'>ایجاد متن جدید<span className='underline '></span></h1>
 <div className='flex justify-center gap-10'>
       <button className="bg-rose-500 text-white w-36 rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
@@ -172,9 +172,10 @@ export default WritePage
 
 const modules = {
   toolbar: [
-    [{ header: '1' }, { header: '2' }, { font: [] }],
-    [{ size: [] }],
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    ['blockquote', 'code-block'],
     [
       { list: 'ordered' },
       { list: 'bullet' },
@@ -182,7 +183,10 @@ const modules = {
       { indent: '+1' }
     ],
     ['link', 'image', 'video'],
-    ['clean']
+    ['clean'],
+    [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
+   
+    [{ 'align': [] }],
   ],
   clipboard: {
     // toggle to add extra line breaks when pasting HTML:

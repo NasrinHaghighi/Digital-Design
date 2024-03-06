@@ -110,13 +110,15 @@ if(res.ok) {
                     ) : null} 
           </div>
           <div className="flex justify-center">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md  w-1/2" type="submit">Submit</button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md  w-1/2" type="submit">ثبت نام</button>
           </div>
        
             </div>
            
             </form>
-            /** Code to be completed */
+
+            <div>kkk</div>
+            {/* /** Code to be completed  */}
             <div className="flex justify-center items-center mt-4 mb-4">
   <hr className="w-1/4 border-gray400"></hr>
   <div className="mx-4 text-gray400 font-bold">or</div>

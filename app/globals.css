@@ -95,6 +95,9 @@ outline: none !important;
   --light-green: rgb(149, 220, 149);
   --input-bg:rgb(246, 246, 252);
   --red-btn:#ff5757;
+  --lightPurple:#27095f80;
+  --ligthBlue:#EEF7FE;
+  --textPurple:#A39FB4;
 }
 [data-theme="dark"] {
   --bg:rgb(19, 16, 28);

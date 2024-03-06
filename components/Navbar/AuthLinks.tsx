@@ -7,15 +7,15 @@ import { useSession,signIn ,signOut} from 'next-auth/react'
 function AuthLinks() {
 
    const {data, status} = useSession()
-   console.log(data)
+   //console.log(data)
   return (
     <>
     {status === 'unauthenticated' ?
-                (<Link href='/register' className='text-center'>ورود</Link>)
+                (<Link href='/signin' className='text-center'>ورود</Link>)
                 :
                 (
                 <div>
-                {data?.user.role === 'admin' ? <Link href='/write' className='text-green-500 '> ایجاد متن جدید</Link> : null}
+                {data?.user.role === 'admin' ? <Link href='/dashboard' className='text-green-500 '> پنل مدیریت</Link> : null}
                 <span className='pl-5'></span>
                 <button  className='text-center' onClick={()=>signOut()}>
 
