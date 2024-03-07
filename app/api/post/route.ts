@@ -8,41 +8,53 @@ import prisma from '../../../utils/connect'
 //const prisma = new PrismaClient();
 
 //get all posts//
-export const GET = async (req: any) => {
-    const { searchParams } = new URL(req.url)
-    const page = searchParams.get('page') ?? '1';
-    const cat = searchParams.get('cat');
-    // console.log('page', page);
-    // console.log('cat', cat);
-    const POST_PER_PAGE = 2;
+import { NextRequest } from 'next/server';
+
+export const GET = async (req: NextRequest) => {
+
+    const url = new URL(req.url)
+    const page = url.searchParams.get('page') ?? '1';
+    const cat = url.searchParams.get('cat');
+    const sort = url.searchParams.get('sort');
+
+     const search = url.searchParams.get('search');
+
+   
+    const POST_PER_PAGE = 4;
     const RECENT_POST_COUNT = 3;
     const query: any = {
         take: POST_PER_PAGE,
         skip: POST_PER_PAGE * (Number(page) - 1),
         where: {
-            ...(cat && { catSlug: cat })
+            ...(cat && { catSlug: cat }),
+            ...(search && { title: { contains: search.toLowerCase(),   mode: 'insensitive'  } })
         }
     };
     try {
-        
+
         const [posts, count] = await prisma.$transaction([
             prisma.post.findMany(query),
-            prisma.post.count({where: query.where})
-            
+            prisma.post.count({ where: query.where })
+
         ]);
-     // Fetch the most recent post
-     const lastPost = await prisma.post.findFirst({
-        orderBy: { createdAt: 'desc' },
-    });
-    const mostRecentPost = await prisma.post.findMany({
-        orderBy: { createdAt: 'desc' }, take: RECENT_POST_COUNT
-    });
-        return new NextResponse(JSON.stringify({posts, count,mostRecentPost,lastPost}), { status: 200 });
+        // Fetch the most recent post
+        const lastPost = await prisma.post.findFirst({
+            orderBy: { createdAt: 'desc' },
+        });
+        const mostOldPosts = await prisma.post.findMany({
+            orderBy: { createdAt: 'asc' },
+        });
+        const mostRecentPost = await prisma.post.findMany({
+            orderBy: { createdAt: 'desc' },
+        });
+        return new NextResponse(JSON.stringify({ posts, count, mostRecentPost, lastPost, mostOldPosts }), { status: 200 });
     } catch (err) {
         console.log(err);
         return new NextResponse(JSON.stringify({ message: 'error' }), { status: 500 });
     }
 }
+
+
 
 
 
@@ -68,20 +80,7 @@ export const POST = async (req: Request) => {
 
    }
 };
-// GET POSTS BY CATEGORY //
 
-// const { searchParams } = new URL(req.url)
-//     const page = searchParams.get('page') ?? '1';
-//     const cat = searchParams.get('cat');
-
-//     const POST_PER_PAGE = 2;
-//     const query = {
-//         take: POST_PER_PAGE,
-//         skip: POST_PER_PAGE * (Number(page) - 1),
-//         where:{
-//             ...(cat && { satSlug: cat})
-//         }
-//     };
 
 
 

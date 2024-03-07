@@ -1,8 +1,47 @@
+import DashboardPostitem from '@/components/Dashboard/DashboardPostitem'
+import Filters from '@/components/Dashboard/Filters/Filters'
+import Link from 'next/link'
 import React from 'react'
 
-function dashboardPostpage() {
+const getData = async ({ sort, page ,cat,search}: { sort: string, page: number,cat:string,search:string }) => {
+  const res = await fetch(`http://localhost:3000/api/post?sort=${sort}&page=${page}&cat=${cat}&search=${search}`, { cache: 'no-store' });
+
+  if (!res.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  return res.json();
+}
+
+
+async function dashboardPostpage({searchParams}:any) {
+  const page = parseInt(searchParams.page) || 1;
+  const sort =searchParams.sort || ''
+  const cat =searchParams.cat || ''
+  const search =searchParams.search || ''
+  //console.log(page,'searchParams', searchParams)
+
+  let posts = [];
+  if (sort === 'newest') {
+    const { mostRecentPost } = await getData({ sort, page,cat,search });
+    posts = mostRecentPost;
+  } else if (sort === 'oldest') {
+    const { mostOldPosts } = await getData({ sort, page, cat, search });
+    posts = mostOldPosts;
+  } else {
+    const { posts: regularPosts } = await getData({ sort, page, cat,search });
+    posts = regularPosts;
+  }
   return (
-    <div>dashboardPostpage</div>
+    <>
+    <Filters />
+    
+    {posts.map((post:any)=>{
+return <DashboardPostitem key={post.id} post={post}/>
+})}
+</>
+
+   
   )
 }
 

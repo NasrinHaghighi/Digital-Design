@@ -16,7 +16,7 @@ const getData = async () => {
 /* COMPONENT*/ 
 async function Features() {
   const {lastPost} = await getData()
-  //console.log('lastPost', JSON.stringify(lastPost))
+ 
   return (
     <div className='container pt-12 pb-12 mt-10'>
        <h1 className='text-4xl font-black p-8 text-center'>{lastPost.title}<span className='underline '></span></h1>

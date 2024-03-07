@@ -46,11 +46,7 @@ const getData = async () => {
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center gap-4 p-4">
           
           {data?.map((item:any)=>{
-            const CatBg = () => {
-
-  
-            }
-            return(
+                       return(
               <Link key={item._id} href={`/blog?cat=${item.slug}`} className={`${bgCat(item.title)} rounded-md p-4 flex justify-center gap-4  items-center md:w-36 w-52 lg:w-52 m-auto mb-5`}>
                  <span>{item.title}</span>
                  <div className="rounded-full overflow-hidden  w-10 h-10 ">
