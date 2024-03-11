@@ -10,15 +10,15 @@ async function Sidebar() {
     const session = await getServerSession(options);
     
   return (
-    <div className='h-full bg-gray-200 p-5 '>
-        <div className=' w-full grid  place-items-center  py-5 border-b border-gray-300'>
-            <div>
+    <div className='min-h-max bg-gray-200 md:p-5 p-2 '>
+         <div className=' border-gray-300 flex flex-col justify-center items-center border-b-2 pb-5'>
+            <div >
                 <Image src={Photo} alt='photo' width={80} height={80} className='rounded-full mb-8'/>
             </div>
             <div className='mb-2 font-semibold'>{session?.user?.name}</div>
             <div>طراح دیجیتال</div>
-      </div>
-    <DashboardLinks />
+      </div> 
+     <DashboardLinks />
    </div>
     
   )

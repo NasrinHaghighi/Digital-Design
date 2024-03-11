@@ -29,6 +29,7 @@ const handleInputChange = (event:any) => {
     params.set('page', '1');
     const queryString = params.toString();
     const updatedPath = queryString ? `${pathname}?${queryString}` : pathname;
+    //console.log(updatedPath);
     router.push(updatedPath);
   };
   return (

@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-const colors = require("tailwindcss/colors");
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 const config: Config = {
   darkMode: 'class',
@@ -26,6 +26,10 @@ const config: Config = {
             "red-btn":"var(--red-btn)",
             "iconDisable": "var(--iconDisable)",
           
+          },
+          screens: {
+            'xs': '475px',
+            ...defaultTheme.screens,
           },
     },
   },

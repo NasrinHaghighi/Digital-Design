@@ -38,7 +38,7 @@ useEffect(()=>{
       
         <li className="" key={item.id}>
           <Link className="rounded-md   hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" 
-      href={`/dashboard/posts?cat=${item.slug}`}>{item.title}</Link></li>
+      href={`/dashboard/posts?cat=${item.slug}`} onClick={()=>setOpen(false)}>{item.title}</Link></li>
        )
      })}
      

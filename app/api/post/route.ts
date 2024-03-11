@@ -9,6 +9,7 @@ import prisma from '../../../utils/connect'
 
 //get all posts//
 import { NextRequest } from 'next/server';
+import { Console } from 'console';
 
 export const GET = async (req: NextRequest) => {
 
@@ -17,10 +18,10 @@ export const GET = async (req: NextRequest) => {
     const cat = url.searchParams.get('cat');
     const sort = url.searchParams.get('sort');
 
-     const search = url.searchParams.get('search');
-
+    const search = url.searchParams.get('search');
+console.log(sort, search)
    
-    const POST_PER_PAGE = 4;
+    const POST_PER_PAGE = 6;
     const RECENT_POST_COUNT = 3;
     const query: any = {
         take: POST_PER_PAGE,
@@ -28,7 +29,8 @@ export const GET = async (req: NextRequest) => {
         where: {
             ...(cat && { catSlug: cat }),
             ...(search && { title: { contains: search.toLowerCase(),   mode: 'insensitive'  } })
-        }
+        },
+        orderBy: sort === 'oldest' ? { createdAt: 'asc' } : { createdAt: 'desc' }
     };
     try {
 
@@ -41,13 +43,11 @@ export const GET = async (req: NextRequest) => {
         const lastPost = await prisma.post.findFirst({
             orderBy: { createdAt: 'desc' },
         });
-        const mostOldPosts = await prisma.post.findMany({
-            orderBy: { createdAt: 'asc' },
-        });
         const mostRecentPost = await prisma.post.findMany({
-            orderBy: { createdAt: 'desc' },
+            orderBy: { createdAt: 'desc',  }, take: 4
         });
-        return new NextResponse(JSON.stringify({ posts, count, mostRecentPost, lastPost, mostOldPosts }), { status: 200 });
+        
+        return new NextResponse(JSON.stringify({ posts, count, lastPost, mostRecentPost }), { status: 200 });
     } catch (err) {
         console.log(err);
         return new NextResponse(JSON.stringify({ message: 'error' }), { status: 500 });

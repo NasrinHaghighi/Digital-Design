@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const getData = async ({ sort, page ,cat,search}: { sort: string, page: number,cat:string,search:string }) => {
-  const res = await fetch(`http://localhost:3000/api/post?sort=${sort}&page=${page}&cat=${cat}&search=${search}`, { cache: 'no-store' });
+  const res = await fetch(`http://localhost:3000/api/post?&search=${search}&sort=${sort}&page=${page}&cat=${cat}`, { cache: 'no-store' });
 
   if (!res.ok) {
     throw new Error('Network response was not ok');
@@ -20,25 +20,15 @@ async function dashboardPostpage({searchParams}:any) {
   const cat =searchParams.cat || ''
   const search =searchParams.search || ''
   //console.log(page,'searchParams', searchParams)
+const { posts, count } = await getData({ sort, page, cat, search });
 
-  let posts = [];
-  if (sort === 'newest') {
-    const { mostRecentPost } = await getData({ sort, page,cat,search });
-    posts = mostRecentPost;
-  } else if (sort === 'oldest') {
-    const { mostOldPosts } = await getData({ sort, page, cat, search });
-    posts = mostOldPosts;
-  } else {
-    const { posts: regularPosts } = await getData({ sort, page, cat,search });
-    posts = regularPosts;
-  }
   return (
     <>
-    <Filters />
+    <Filters sort={sort} page={page} cat={cat} search={search}/>
     
-    {posts.map((post:any)=>{
+   {posts.map((post:any)=>{
 return <DashboardPostitem key={post.id} post={post}/>
-})}
+})} 
 </>
 
    
@@ -46,3 +36,16 @@ return <DashboardPostitem key={post.id} post={post}/>
 }
 
 export default dashboardPostpage
+
+
+  // let posts = [];
+  // if (sort === 'newest') {
+  //   const { mostRecentPost } = await getData({ sort, page,cat,search });
+  //   posts = mostRecentPost;
+  // } else if (sort === 'oldest') {
+  //   const { mostOldPosts } = await getData({ sort, page, cat, search });
+  //   posts = mostOldPosts;
+  // } else {
+  //   const { posts: regularPosts } = await getData({ sort, page, cat,search });
+  //   posts = regularPosts;
+  // }
