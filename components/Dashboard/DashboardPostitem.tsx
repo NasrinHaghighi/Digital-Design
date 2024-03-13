@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import {bgCat} from '../../utils/bgcategory'
+import ActionPostItem from './ActionPostItem'
 
 function DashboardPostitem({post}:any) {
   return (
@@ -16,7 +17,11 @@ function DashboardPostitem({post}:any) {
           <div className='mb-5 md:text-2xl text-xl '>عنوان:<span className='px-1'></span><span>{post.title}</span></div>
 <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center gap-3'>
   <div className='text-sm'>تعداد بازدید : <span className='px-1 text-red-500'>{post.views} </span></div> 
-  <div>action</div></div>
+
+
+  <div><ActionPostItem post={post} /></div>
+  
+  </div>
       </div>
     </div>
   )

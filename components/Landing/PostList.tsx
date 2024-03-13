@@ -29,7 +29,7 @@ const POST_PER_PAGE=2
        {posts?.map((item: any) => {
         return <PostListItem item={item} key={item.id} />
       })} 
-      <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} cat={cat}/>
+      <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} cat={cat}/> 
       </div>
 
     </>

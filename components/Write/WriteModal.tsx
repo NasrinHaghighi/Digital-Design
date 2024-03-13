@@ -12,8 +12,8 @@ interface ModalProps{
 }
 
 const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
-    console.log(values.value)
-   
+console.log(values)
+
   return (
     <>
    
@@ -26,7 +26,7 @@ const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
       </div>
 
             <br/>            
-            {values.title && values.value  && values.file ? (
+          
                 <div className=' bg-white rounded-md  max-h-[80vh] overflow-y-auto p-5 m-5'>
                     <div className="grid grid-flow-col justify-around items-center w-l ">
                        
@@ -38,22 +38,16 @@ const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
                        </div>
                         
                     </div>
-                    <div className=" col-span-12 ">
+                     <div className=" col-span-12 ">
    <div className='leading-relaxed p-4' dangerouslySetInnerHTML={{ __html: values?.value || '' }} />
-   </div>
+   </div> 
                     
                 </div>
-            ) : (
-                <div>
-                <br/>
-                <h1 className='text-white font-semibold text-5xl'>لطفا ابتدا متنی وارد کنید.. </h1>
-                <br/>
-                </div>
-            )}
+          
             </div> 
         </div>
     )
-}
+} 
         
 </>
   )

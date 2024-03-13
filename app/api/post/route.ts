@@ -9,7 +9,7 @@ import prisma from '../../../utils/connect'
 
 //get all posts//
 import { NextRequest } from 'next/server';
-import { Console } from 'console';
+import { revalidatePath } from 'next/cache'
 
 export const GET = async (req: NextRequest) => {
 
@@ -19,7 +19,7 @@ export const GET = async (req: NextRequest) => {
     const sort = url.searchParams.get('sort');
 
     const search = url.searchParams.get('search');
-console.log(sort, search)
+//console.log(sort, search)
    
     const POST_PER_PAGE = 6;
     const RECENT_POST_COUNT = 3;
@@ -68,18 +68,51 @@ export const POST = async (req: Request) => {
         return new NextResponse(JSON.stringify({ message: 'not authenticated ' }), { status: 401 });
     }
    try{
-    
-
     const body = await req.json();
-   // console.log('req body', body);
+    console.log('req body', body);
     const post = await prisma.post.create({ data: { ...body,  userEmail: session?.user?.email ?? '' ,userName: session?.user?.name ?? ''} });
     return new NextResponse(JSON.stringify(post), { status: 200 });
    } catch(e:any){
     console.log(e)
-    return new NextResponse(JSON.stringify({message:e.message}), {status: 500})
-
-   }
+    return new NextResponse(JSON.stringify({message:'SOME'}), {status: 500})
+}
 };
+
+//DELETE APOST//
+export const DELETE = async (req: Request) => {
+    const body = await req.json();
+   // console.log(req.url)
+const url = new URL(req.url)
+const path = url.pathname || '/dashboard/posts'
+    const { postId } = body;
+    // console.log(postId);
+    try {
+        await prisma.post.delete({
+            where: {
+                id: postId as string
+            },
+
+        });
+        // Fetch the updated list of posts
+        const updatedPosts = await prisma.post.findMany();
+
+        revalidatePath(path)
+        return new NextResponse(JSON.stringify({ message: 'Post deleted', posts: updatedPosts }), {
+            status: 200
+        });
+
+    } catch (error: any) {
+        return new NextResponse(JSON.stringify({ message: error.message }), {
+            status: 500
+        });
+    }
+};
+
+
+
+
+
+
 
 
 

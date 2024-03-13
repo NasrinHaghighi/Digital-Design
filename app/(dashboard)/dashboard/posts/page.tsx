@@ -1,10 +1,11 @@
 import DashboardPostitem from '@/components/Dashboard/DashboardPostitem'
 import Filters from '@/components/Dashboard/Filters/Filters'
+import next from 'next'
 import Link from 'next/link'
 import React from 'react'
 
 const getData = async ({ sort, page ,cat,search}: { sort: string, page: number,cat:string,search:string }) => {
-  const res = await fetch(`http://localhost:3000/api/post?&search=${search}&sort=${sort}&page=${page}&cat=${cat}`, { cache: 'no-store' });
+  const res = await fetch(`http://localhost:3000/api/post?&search=${search}&sort=${sort}&page=${page}&cat=${cat}`, { cache: 'no-store' }, );
 
   if (!res.ok) {
     throw new Error('Network response was not ok');
@@ -22,6 +23,8 @@ async function dashboardPostpage({searchParams}:any) {
   //console.log(page,'searchParams', searchParams)
 const { posts, count } = await getData({ sort, page, cat, search });
 
+
+console.log(posts.length)
   return (
     <>
     <Filters sort={sort} page={page} cat={cat} search={search}/>

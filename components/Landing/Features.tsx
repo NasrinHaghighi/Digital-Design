@@ -19,22 +19,22 @@ async function Features() {
  
   return (
     <div className='container pt-12 pb-12 mt-10'>
-       <h1 className='text-4xl font-black p-8 text-center'>{lastPost.title}<span className='underline '></span></h1>
+       <h1 className='text-4xl font-black p-8 text-center'>{lastPost?.title}<span className='underline '></span></h1>
        <div className="flex flex-col md:flex-row justify-around items-center gap-10 py-10">
        
        
 
         <div className="flex-1 md-order-1">
-            <Image width={400} height={400} src={lastPost.img} alt='logo' className='object-cover rounded-md h-[400px] w-[400px]' />
+            <Image width={400} height={400} src={lastPost?.img} alt='logo' className='object-cover rounded-md h-[400px] w-[400px]' />
         </div>
         <div className="flex-1 ">  
         
-        <div dangerouslySetInnerHTML={{ __html: lastPost.des.substring(0, 650) + '...' }} />
+        <div dangerouslySetInnerHTML={{ __html: lastPost?.des.substring(0, 650) + '...' }} />
         
     
        
        <div className='text-sm flex justify-end items-center '>
-          <Link href={lastPost.slug} className='border-b-2 border-gray-500 hover:border-red-500 py-1 hover:text-red-500' >ادامه مطلب</Link>
+          <Link href={lastPost?.slug} className='border-b-2 border-gray-500 hover:border-red-500 py-1 hover:text-red-500' >ادامه مطلب</Link>
         </div>
         </div>
        </div>

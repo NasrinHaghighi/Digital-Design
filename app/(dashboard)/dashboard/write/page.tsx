@@ -31,27 +31,23 @@ Quill.register('modules/imageResize', ImageResize);
 
 
 function WritePage() {
-  
-
-
-
-
   const router = useRouter();
-  const session =useSession()
-  const role =session.data?.user.role
+  const session = useSession();
+  const role = session.data?.user.role;
+
   useEffect(() => {
-//     if (role !== 'user') {
-// router.push('/')
-//     }
-
-  })
-
-
+    // if (role !== 'user') {
+    //   router.push('/')
+    // }
+  });
 
   const [open, setOpen] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [value, setValue] = useState('');
-  const [file, setFile] = useState<File | null>(null );
+  const [file, setFile] = useState<File | null>(null);
+
+
+
   
 const slugify = (text: string) => {
  text= text.toLowerCase().trim().replace(/\s+/g, '-')
@@ -59,6 +55,8 @@ const slugify = (text: string) => {
 }
 
   const handelSubmit = async(values:any) => {
+  
+    
       const res = await fetch('http://localhost:3000/api/post', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -70,7 +68,8 @@ const slugify = (text: string) => {
         catSlug: values.category,
       }),
     })
-    console.log(res)
+    console.log('res', res)
+    console.log('values', values)
   }
 
   
@@ -84,6 +83,7 @@ const slugify = (text: string) => {
         },
         //validationSchema: SignupSchema,
         onSubmit: values => {
+         // console.log('Submitting: ', values);
           handelSubmit(values);
 router.push('/');
         },
@@ -93,11 +93,19 @@ router.push('/');
             ...formik.values,
             value: value,
             file: file
+            
         });
+   
     }, [value, file]);
     useEffect(() => {
 
     },[value])
+
+    useEffect(() => {
+  
+    }
+  
+    ,[openModal])
   return (
 
     <div className='container pb-12 '>
@@ -106,12 +114,13 @@ router.push('/');
       <button className="bg-rose-500 text-white w-36 rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
       مشاهده متن
       </button>
-      <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit'> ارسال</button>
+    
      </div>
       <br />
       <br />
 
-      <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={formik.values} />
+       <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={formik.values} />
+
       <form onSubmit={formik.handleSubmit}>
         <div className='mb-8'>
           <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-textColor">عنوان پست جدید</label>
@@ -160,7 +169,7 @@ router.push('/');
 
         <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****'/>
         <br />
-        
+        <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button>
       </form>
     </div>
 
@@ -184,7 +193,7 @@ const modules = {
     ],
     ['link', 'image', 'video'],
     ['clean'],
-    [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
+    // [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
    
     [{ 'align': [] }],
   ],
