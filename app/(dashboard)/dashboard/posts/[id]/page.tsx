@@ -170,11 +170,13 @@ function SiglePostDashboard() {
                     <div className='mb-8'>
                         <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-textColor"> اضافه کردن تصویر</label>
 
-                        <div className=' flex flex-row justify-start items-center gap-5'  >
+                        <div className='bg-white rounded-md flex md:flex-row flex-col  justify-start items-center gap-5 border border-gray-200 p-4 border-spacing-1 border-1'  >
+                             <div>
+                           <span>تصویر قبلی</span>
+                            <img src={postData?.img} alt={postData?.title} className='h-40 w-40 object-cover rounded-lg' /></div>
 
-                            <img src={postData?.img} alt={postData?.title} className='h-40 w-40 object-cover rounded-lg' />
                             <div className=''> <Upload setFile={setFile} /> </div>
-                            <div>preview of new image:
+                            <div>مشاهده تصویر جدید:
                                
                              {file instanceof File && (
   <img src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' />

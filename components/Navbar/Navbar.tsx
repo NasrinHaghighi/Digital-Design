@@ -13,8 +13,8 @@ async function Navbar() {
  const sesstion = await getServerSession(options)
  console.log('sesstttion', sesstion?.user)
   return (
-    <div className='flex max-w-screen-xl justify-between items-center align-baseline 
-    h-20 '>
+    <div className=' px-5 flex max-w-screen-xl justify-between items-center align-baseline 
+    h-20 xs:px-5'>
           <div className='flex-1 hidden md:flex'>
             <NavbarLinks />
         </div>

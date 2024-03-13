@@ -17,7 +17,7 @@ const getData = async ({page, cat}:any) => {
 async function PostList({page, cat}:any) {
 
   const {posts , count} = await getData({page, cat})
-const POST_PER_PAGE=2
+const POST_PER_PAGE=6
 //console.log('count'+count,'page'+page, 'cat'+cat)
   const hasPrev = POST_PER_PAGE * (page - 1) > 0
   const hasNext = POST_PER_PAGE * (page - 1)+POST_PER_PAGE  < count
