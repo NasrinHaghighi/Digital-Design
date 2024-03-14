@@ -21,6 +21,7 @@ interface Props {
 }
 
 function Comments({postSlug}:any) {
+ // console.log(postSlug);
     const { data: session } = useSession()
     const [des, setDes] = useState('')
     const [comments, setComments] = useState([])

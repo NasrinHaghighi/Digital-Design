@@ -41,3 +41,31 @@ export const GET = async (req: Request) => {
     return new NextResponse(JSON.stringify({message:'SOME'}), {status: 500})
 }
 };
+
+export const DELETE = async (req: Request) => {
+    const body = await req.json();
+   
+    console.log('body', body);
+    const { id } = body;
+    // console.log(postId);
+    try {
+        await prisma.comment.delete({
+            where: {
+                id: id as string
+            },
+
+        });
+        // Fetch the updated list of posts
+        const updatedComments = await prisma.comment.findMany();
+console.log(updatedComments)
+
+        return new NextResponse(JSON.stringify({ message: 'Post deleted', comments: updatedComments }), {
+            status: 200
+        });
+
+    } catch (error: any) {
+        return new NextResponse(JSON.stringify({ message: error.message }), {
+            status: 500
+        });
+    }
+};

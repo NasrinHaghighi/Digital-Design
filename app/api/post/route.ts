@@ -81,11 +81,10 @@ export const POST = async (req: Request) => {
 //DELETE APOST//
 export const DELETE = async (req: Request) => {
     const body = await req.json();
-   // console.log(req.url)
-const url = new URL(req.url)
-const path = url.pathname || '/dashboard/posts'
+ 
+
     const { postId } = body;
-    // console.log(postId);
+    
     try {
         await prisma.post.delete({
             where: {
@@ -93,10 +92,9 @@ const path = url.pathname || '/dashboard/posts'
             },
 
         });
-        // Fetch the updated list of posts
         const updatedPosts = await prisma.post.findMany();
 
-        revalidatePath(path)
+        
         return new NextResponse(JSON.stringify({ message: 'Post deleted', posts: updatedPosts }), {
             status: 200
         });

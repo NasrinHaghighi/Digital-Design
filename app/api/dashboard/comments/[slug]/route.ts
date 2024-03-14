@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 //import { PrismaClient } from '@prisma/client';
-import prisma from '../../../../utils/connect'
+import prisma from '../../../../../utils/connect'
 
 
 //const prisma = new PrismaClient();
@@ -10,17 +10,19 @@ import prisma from '../../../../utils/connect'
 export const GET = async (req: any,{params}:any) => {
 
     const {slug}=params
+   // console.log('slug*****',params.slug)
     
     try {
-       const post = await prisma.post.findUnique({
+       const comments = await prisma.comment.findMany({
         where: {
-               slug: slug
+            postSlug: slug
            }
        })
 
-        return new NextResponse(JSON.stringify(post), { status: 200 });
+        return new NextResponse(JSON.stringify(comments), { status: 200 });
     } catch (err) {
         console.log(err);
         return new NextResponse(JSON.stringify({ message: 'error' }), { status: 500 });
     }
 }
+

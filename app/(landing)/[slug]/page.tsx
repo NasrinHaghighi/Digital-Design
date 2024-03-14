@@ -20,7 +20,7 @@ const getData = async ( slug : any) => {
   const data = await getData( slug )
  
  
- //console.log('data, slug', data)
+ console.log('data, slug', slug)
   return (
     <div>
       

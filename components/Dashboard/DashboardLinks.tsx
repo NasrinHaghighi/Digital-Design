@@ -17,6 +17,8 @@ function DashboardLinks() {
     className="hover:border-b-2 border-gray-600 border-transparent transition duration-300 ease-in-out">
         <Link href='/dashboard/write'> ایجاد پست جدید</Link></li>
     <li className="hover:border-b-2 border-gray-600 border-transparent transition duration-300 ease-in-out"><Link href='/dashboard/posts'>کاربران</Link></li>
+
+    <li className="hover:border-b-2 border-gray-600 border-transparent transition duration-300 ease-in-out"><Link href='/dashboard/posts'>کامنت ها </Link></li>
 </ul>
   
   )
