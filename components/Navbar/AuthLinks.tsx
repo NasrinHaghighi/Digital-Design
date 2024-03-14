@@ -14,7 +14,7 @@ function AuthLinks({setOpen}:any) {
                 (<Link href='/signin' className='text-center'>ورود</Link>)
                 :
                 (
-                <div className='flex flex-col gap-5'>
+                <div className='flex md:flex-row flex-col gap-5'>
                 {data?.user.role === 'admin' ? <Link href='/dashboard' className='text-green-500 ' onClick={()=>setOpen(false)}> پنل مدیریت</Link> : null}
                 <span className='pl-5'></span>
                 <button  className='text-center' onClick={()=>signOut()}>
