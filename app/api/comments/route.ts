@@ -7,13 +7,13 @@ import prisma from '../../../utils/connect'
 //CREAT A COMMENT//
 export const POST = async (req: Request) => {
     const session = await getAuthSession();
- console.log('s',session)
+
     if (!session) {
         return new NextResponse(JSON.stringify({ message: 'not authenticated ' }), { status: 401 });
     }
    try{
     const body = await req.json();
-    console.log('req body', body);
+  
     const comment = await prisma.comment.create({ data: { ...body,  userEmail: session?.user?.email ?? '' ,userName: session?.user?.name ?? ''} });
     return new NextResponse(JSON.stringify(comment), { status: 200 });
    } catch(e:any){
@@ -45,9 +45,9 @@ export const GET = async (req: Request) => {
 export const DELETE = async (req: Request) => {
     const body = await req.json();
    
-    console.log('body', body);
-    const { id } = body;
-    // console.log(postId);
+
+  const { id } = body;
+  //console.log(id)
     try {
         await prisma.comment.delete({
             where: {

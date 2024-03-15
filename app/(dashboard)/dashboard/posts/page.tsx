@@ -24,7 +24,7 @@ async function dashboardPostpage({searchParams}:any) {
 const { posts, count } = await getData({ sort, page, cat, search });
 
 
-console.log(posts.length)
+
   return (
     <>
     <Filters sort={sort} page={page} cat={cat} search={search}/>

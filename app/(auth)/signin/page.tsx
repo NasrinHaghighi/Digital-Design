@@ -80,13 +80,16 @@ function SigninPage() {
                     ) : null} 
           </div>
           <div className="flex justify-center">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md  w-1/2" type="submit">Submit</button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md  w-1/2" type="submit">ورود</button>
           </div>
        
             </div>
            
             </form>
             {/* /** Code to be completed */ }
+{/* GO TO REGISTERATION */}
+<div className='text-center p-5'> هنوز حساب کاربری ندارید? <Link href='/register' className='text-green-500 font-semibold'>اینجا ثبت نام کنید.</Link></div>
+
             <div className="flex justify-center items-center mt-4 mb-4">
   <hr className="w-1/4 border-gray400"></hr>
   <div className="mx-4 text-gray400 font-bold">or</div>

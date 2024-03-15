@@ -52,6 +52,7 @@ model User {
   Post        Post[]  
   Comment       Comment[] 
   password     String
+  replies      Reply[]
 
 }
 
@@ -93,7 +94,22 @@ model Comment {
   userEmail  String
   userName  String?
   user       User  @relation(fields: [userEmail], references: [email])
+  replies   Reply[]
 }
+
+model Reply {
+  id          String   @id @default(cuid()) @map("_id")
+  createdAt   DateTime @default(now())
+  des         String
+  commentId   String
+  comment     Comment  @relation(fields: [commentId], references: [id])
+  userEmail  String
+  userName  String?
+  user       User  @relation(fields: [userEmail], references: [email])
+ 
+
+}
+
 model Img {
   id String @id @default(cuid()) @map("_id")
   url       String

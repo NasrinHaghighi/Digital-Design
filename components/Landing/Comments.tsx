@@ -43,14 +43,19 @@ const fetchData = async () => {
 
     const handelSubmit =async (event:any) => {
         event.preventDefault()
-      await fetch('http://localhost:3000/api/comments', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({des, postSlug}),
-      })
-      fetchData();
+        try {
+          await fetch('http://localhost:3000/api/comments', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ des, postSlug }),
+          });
+          setDes(''); // Clear the input
+          fetchData(); // Fetch updated comments
+      } catch (error) {
+          console.error('Error submitting comment:', error);
+      }
     }
 
     useEffect(() => {
@@ -65,7 +70,7 @@ const fetchData = async () => {
        <div>
         <h2 className="mb-5">ارسال نظر:</h2>
         <form onSubmit={handelSubmit}>
-       <input type="text" placeholder="نظر بدهید..."  className='w-full h-10 rounded-md border-2 border-gray-300 outline-none' onChange={(event)=>(setDes(event.target.value))} />
+       <input type="text" placeholder="نظر بدهید..."  className='w-full h-10 rounded-md border-2 border-gray-300 outline-none' value={des} onChange={(event)=>(setDes(event.target.value))} />
        <button type="submit" className="bg-blue-500 text-white px-5 py-2 rounded-md mt-5">ارسال</button>
        </form>
    </div>
