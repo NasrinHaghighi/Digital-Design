@@ -82,13 +82,23 @@ export const POST = async (req: Request) => {
 export const DELETE = async (req: Request) => {
     const body = await req.json();
  
-
-    const { postId } = body;
+console.log('body', body);
+    const { id, slug } = body;
     
     try {
+        await prisma.reply.deleteMany({
+            where: {
+                postSlug: slug as string
+            }
+        });
+        await prisma.comment.deleteMany({
+            where: {
+                postSlug: slug as string
+            }
+        });
         await prisma.post.delete({
             where: {
-                id: postId as string
+                id: id as string
             },
 
         });

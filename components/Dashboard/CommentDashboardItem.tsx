@@ -47,7 +47,7 @@ function CommentDashboardItem({ item }: Props) {
             if (!res.ok) {
                 throw new Error('Failed to remove post');
             }
-            router.push('/dashboard');
+            router.push('/dashboard/posts');
             // Handle successful response
             console.log('Post removed successfully');
         } catch (error) {
@@ -60,7 +60,7 @@ function CommentDashboardItem({ item }: Props) {
 
     const replyHandel = async (e: any) => {
         e.preventDefault();
-        const { id: commentId } = item;
+        const { id: commentId, postSlug } = item;
 
         console.log(des, commentId);
         try {
@@ -70,7 +70,7 @@ function CommentDashboardItem({ item }: Props) {
                     'Content-Type': 'application/json',
                 },
 
-                body: JSON.stringify({ des, commentId }),
+                body: JSON.stringify({ des, commentId ,postSlug}),
 
             });
             setDes('');
@@ -114,9 +114,10 @@ function CommentDashboardItem({ item }: Props) {
                 </div>
 
                 <div className='border-t-2 border-gray-300 py-5'>
-                 {replies?.map((reply: any) => (
+                    <h1 className='text-xl font-bold mb-5'>پاسخ ها</h1>
+                 {replies.length>0 ? replies?.map((reply: any) => (
                     <ShowReply key={reply.id} reply={reply} />
-                ))}
+                )): <p>در حال حاضر پاسخی وجود ندارد</p>}
                 </div>
             </div>
         </div>

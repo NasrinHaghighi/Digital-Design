@@ -15,8 +15,10 @@ import Link from 'next/link';
 function ActionPostItem({ post }: Props) {
    
     const router = useRouter();
-
-    const removeHandle = async (postId: string) => {
+ const removeHandle = async (post:any) => {
+   
+    const {id,slug} = post;
+   console.log(id,slug)
         try {
             // Call API to remove post  
             const res = await fetch(`http://localhost:3000/api/post`,
@@ -25,7 +27,7 @@ function ActionPostItem({ post }: Props) {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ postId })
+                    body: JSON.stringify({ id ,slug})
 
                 });
 
@@ -45,7 +47,7 @@ function ActionPostItem({ post }: Props) {
 
     return (
         <div className="flex justify-between items-center gap-x-3">
-            <div className='bg-red-500 px-3 py-1 rounded-md cursor-pointer' onClick={() => removeHandle(post.id)} >حذف</div>
+            <div className='bg-red-500 px-3 py-1 rounded-md cursor-pointer' onClick={() => removeHandle(post)} >حذف</div>
             <div className='bg-green-500 px-3 py-1 rounded-md cursor-pointer' >
                 <Link href={`/dashboard/posts/${post.id}`}>ویرایش</Link>
             </div>
@@ -59,3 +61,6 @@ function ActionPostItem({ post }: Props) {
 
 
 export default ActionPostItem
+
+/*in the first try i use post.id to remove post,*/
+/* but when added comment and rply i releaied that i need to remove comment and reply asosited by this post in the backend at the same time, for this case i will pass post object instead of only post.id */

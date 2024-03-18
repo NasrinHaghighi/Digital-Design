@@ -21,7 +21,7 @@ interface Props {
 }
 
 function Comments({postSlug}:any) {
- // console.log(postSlug);
+  console.log(postSlug);
     const { data: session } = useSession()
     const [des, setDes] = useState('')
     const [comments, setComments] = useState([])
@@ -39,7 +39,7 @@ const fetchData = async () => {
         console.error('Error fetching data:', error);
       }
 }
-
+//console.log('comments',comments)
 
     const handelSubmit =async (event:any) => {
         event.preventDefault()

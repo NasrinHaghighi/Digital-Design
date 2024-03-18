@@ -10,9 +10,9 @@ export const POST = async (req: Request) => {
         return new NextResponse(JSON.stringify({ message: 'not authenticated ' }), { status: 401 });
     }
    try{
-    const { commentId, des } = await req.json();
-    console.log('req body', commentId, des);
-    const reply = await prisma.reply.create({ data: { des, commentId,  userEmail: session?.user?.email ?? '' ,userName: session?.user?.name ?? ''} });
+    const { commentId, des , postSlug} = await req.json();
+    console.log('req body', commentId, des , postSlug);
+    const reply = await prisma.reply.create({ data: { des, commentId,  postSlug , userEmail: session?.user?.email ?? '' ,userName: session?.user?.name ?? ''} });
     return new NextResponse(JSON.stringify(reply), { status: 200 });
    } catch(e:any){
     console.log('err',e)

@@ -84,6 +84,7 @@ model Post {
   user       User  @relation(fields: [userEmail], references: [email])
   userName  String?
   comments   Comment[]   
+  replies   Reply[]
 }
 model Comment {
   id        String   @id @default(cuid()) @map("_id")
@@ -106,7 +107,8 @@ model Reply {
   userEmail  String
   userName  String?
   user       User  @relation(fields: [userEmail], references: [email])
- 
+ postSlug  String
+  post      Post @relation(fields: [postSlug], references: [slug])
 
 }
 
