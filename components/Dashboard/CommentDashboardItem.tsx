@@ -62,7 +62,7 @@ function CommentDashboardItem({ item }: Props) {
         e.preventDefault();
         const { id: commentId, postSlug } = item;
 
-        console.log(des, commentId);
+        
         try {
             await fetch('http://localhost:3000/api/replies', {
                 method: 'POST',

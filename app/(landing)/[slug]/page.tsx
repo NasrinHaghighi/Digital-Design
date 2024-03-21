@@ -4,7 +4,7 @@ import Banner from '../../../public/img/culture.png'
 import Sidebar from '@/components/Landing/Sidebar'
 import Comments from '@/components/Landing/Comments'
 /////
-const getData = async ( slug : any) => {
+const getData = async ( slug : string) => {
   const res = await fetch(`http://localhost:3000/api/post/${slug}`
     , { cache: 'no-store' })
 
@@ -20,7 +20,7 @@ const getData = async ( slug : any) => {
   const data = await getData( slug )
  
  
- console.log('data, slug', slug)
+ 
   return (
     <div>
       

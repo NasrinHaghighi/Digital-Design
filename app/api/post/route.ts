@@ -82,7 +82,7 @@ export const POST = async (req: Request) => {
 export const DELETE = async (req: Request) => {
     const body = await req.json();
  
-console.log('body', body);
+
     const { id, slug } = body;
     
     try {
