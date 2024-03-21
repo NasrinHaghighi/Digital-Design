@@ -41,3 +41,37 @@ export const GET = async (req: Request) => {
     return new NextResponse(JSON.stringify({message:'SOME'}), {status: 500})
 }
 };
+export const PUT = async (req: Request) => {
+   
+const body = await req.json();
+const {id, value} = body;
+      try{
+       
+        const reply =  await prisma.reply.findUnique({
+            where: {
+                id: id as string
+            },
+
+        });
+        if (!reply) {
+            return new NextResponse(JSON.stringify({ message: 'reply not found' }), {
+                status: 404
+            });
+        }
+        const updatedComment = await prisma.reply.update({
+            where: {
+                id: id as string
+            },
+            data: {
+                des: value // Assuming 'des' is the field you want to update
+            }
+        });
+
+        // Fetch the updated list of comments
+        const updatedreplyes = await prisma.comment.findMany();
+       return new NextResponse(JSON.stringify(updatedreplyes), { status: 200 });
+      } catch(e:any){
+       console.log('err',e)
+       return new NextResponse(JSON.stringify({message:'SOME'}), {status: 500})
+   }
+   };

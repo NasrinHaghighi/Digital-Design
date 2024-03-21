@@ -10,7 +10,7 @@ import ShowReply from '../Dashboard/ShowReply';
 function CommentItem({item,children}:any) {
   const { data: session, status } = useSession()
 const router = useRouter()
-  const [openEdite, setOpenEdite] = useState(true);
+  const [openEdite, setOpenEdite] = useState(false);
   const [value, setValue] = useState('');
 
   const editeHandel = async () => {
