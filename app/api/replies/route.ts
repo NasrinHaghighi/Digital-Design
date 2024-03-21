@@ -22,8 +22,10 @@ export const POST = async (req: Request) => {
 };
 
 export const GET = async (req: Request) => {
+   
  const {searchParams}=new URL(req.url)
  const commentId = searchParams.get('commentId')
+
    try{
     
     const reply = await prisma.reply.findMany({ 

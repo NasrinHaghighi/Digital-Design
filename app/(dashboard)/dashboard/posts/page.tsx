@@ -1,7 +1,6 @@
 import DashboardPostitem from '@/components/Dashboard/DashboardPostitem'
 import Filters from '@/components/Dashboard/Filters/Filters'
-import next from 'next'
-import Link from 'next/link'
+
 import React from 'react'
 
 const getData = async ({ sort, page ,cat,search}: { sort: string, page: number,cat:string,search:string }) => {

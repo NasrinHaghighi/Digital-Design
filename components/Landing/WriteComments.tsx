@@ -20,8 +20,9 @@ function WriteComments({postSlug}:any) {
                 },
                 body: JSON.stringify({ des, postSlug }),
             });
-            setDes(''); // Clear the input
-       router.refresh()
+             // Clear the input
+      router.refresh()
+      setDes('')
         } catch (error) {
             console.error('Error submitting comment:', error);
         }

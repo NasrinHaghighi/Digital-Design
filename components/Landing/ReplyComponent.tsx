@@ -4,6 +4,7 @@ import React,{useEffect, useState} from 'react'
 import { useRouter } from 'next/navigation';
 
 function ReplyComponent({ item }: any) {
+    console.log(item)
 const router =useRouter()
     const [openReply, setOpenReply] = useState(false);
     const [reply, setReply] = useState('');
@@ -28,7 +29,7 @@ const handleSubmitReply = async (e:any) => {
         console.error('somethings went wrong'); 
     }
         setOpenReply(false);
-       // router.push(`/post/${item.postSlug}`);
+        router.refresh()
       } catch (error) {
         console.error('Error posting reply:', error);
       }

@@ -1,6 +1,8 @@
+import { Children } from "react";
 import CommentItem from "./CommentItem"
 import WriteComments from "./WriteComments"
-
+import ReplyComponent from "./ReplyComponent";
+import ShowReply from "./ShowReply";
 
 interface Props {
     createdAt: string;
@@ -44,7 +46,9 @@ const data = await getData ({postSlug})
        <div>
         <h2 className="mt-5 mb-5">نظرات دوستان :</h2>
        {data?.map((item:Props, index:number)=>{
-        return <p>{item.userEmail}{item.des}</p>
+        return <CommentItem key={index} item={item} >
+          <ShowReply item={item}/>
+        </CommentItem>
         })} 
        </div>
     </div>
