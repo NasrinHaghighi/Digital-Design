@@ -68,8 +68,8 @@ const slugify = (text: string) => {
         catSlug: values.category,
       }),
     })
-    console.log('res', res)
-    console.log('values', values)
+    //console.log('res', res)
+   // console.log('values', values)
   }
 
   
@@ -101,16 +101,13 @@ router.push('/');
 
     },[value])
 
-    useEffect(() => {
-  
-    }
-  
-    ,[openModal])
+    
   return (
 
     <div className='container pb-12 '>
       <h1 className='text-4xl font-bold p-8 text-center'>ایجاد متن جدید<span className='underline '></span></h1>
 <div className='flex justify-center gap-10'>
+ 
       <button className="bg-rose-500 text-white w-36 rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
       مشاهده متن
       </button>
@@ -157,17 +154,20 @@ router.push('/');
           <div className=' flex felx-row justify-start items-center gap-5'  >
             <div onClick={() => setOpen(!open)}><CiCirclePlus className='text-green-800 text-5xl font-extrabold' /></div>
             {open &&
-              <div className=''>
+              <div className='md:flex:row jutify-center items-center gap-5 flex-col'>
                 <Upload setFile={setFile} />
-
-
+<div>
+                {file instanceof File && (
+  <img src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' />
+)}
+{typeof file === 'string' && <img src={file} alt='preview' className='h-40 w-40 object-cover rounded-lg' />}</div>
               </div>
             }
           </div>
 
         </div>
 
-        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****'/>
+        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****' className='bg-input-bg text-textColor'/>
         <br />
         <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button>
       </form>

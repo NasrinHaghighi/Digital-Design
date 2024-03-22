@@ -1,7 +1,8 @@
 'use client'
 import React ,{useState, useEffect}from 'react'
 import { useRouter } from 'next/navigation';
-function EditeReply({replyId}:any) {
+
+function EditeReply({reply}:any) {
     const [openEdite, setOpenEdite] = useState(false);
     const [value, setValue] = useState('');
     const router = useRouter()
@@ -13,18 +14,24 @@ function EditeReply({replyId}:any) {
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ id : replyId, value })
+          body: JSON.stringify({ id : reply.id, value })
           
         })
         router.refresh()
-      setOpenEdite(false);
+      
 
         if (!res.ok) {
           throw new Error('Failed to edite reply');
         }
             }catch (error) {}
         }
-    
+        useEffect(() => {
+          setValue(reply.des);
+          setOpenEdite(false);
+         
+        },[reply.des])
+      
+        useEffect(() => {setValue(reply.des)},[])
   return (
     <>
     <div>

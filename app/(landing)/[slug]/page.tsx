@@ -30,9 +30,9 @@ const getData = async ( slug : string) => {
     </div> 
        <div className="col-span-8 ">  
        
-       <h2 className='sm:text-5xl text-lg  font-bold py-8 text-center sm:text-rigth leading-relaxed'>{data?.title}</h2>
+       <h2 className='sm:text-4xl text-lg  font-bold py-8 text-center sm:text-rigth leading-10'>{data?.title}</h2>
 
-       <div className='text-center sm:text-right'><span>{data?.userName ? data?.userName : ''}   </span><span>{data?.createdAt.substring(0, 10)} </span></div>
+       <div className='text-center sm:text-right'><span className='text-green-500 font-semibold'>{data?.userName ? data?.userName : ''}   </span><span>{data?.createdAt.substring(0, 10)}  </span></div>
            </div>
       </div>
       <div className="grid md:grid-flow-col grid-flow-row gap-8 p-4 mt-8">

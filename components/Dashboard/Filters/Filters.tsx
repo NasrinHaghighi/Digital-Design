@@ -19,15 +19,15 @@ function Filters({ sort, page, cat, search }: any) {
       </div>
 
       {sort || search || cat ? (
-        <div className='flex justify-between items-center gap-5 bg-gray-200 p-3 rounded-md'>
-          <div className='flex justify-start items-center '>
-          {sort && <p>مرتب سازی : <span className='text-green-500 font-semibold'>{sort}</span></p>}
-          {search && <p>جستجو : <span className='text-blue-500 font-semibold'>{search}</span></p>}
-          {cat && <p>دسته بندی : <span className='text-red-500 font-semibold'>{cat}</span></p>}
+        <div className='flex justify-between items-center gap-5  p-3 rounded-md my-5'>
+          <div className='flex justify-start items-center font-semibold'>
+          {sort && <p>مرتب سازی : <span className='text-green-300 font-semibold mx-2'>{sort}</span></p>}
+          {search && <p>جستجو : <span className='text-blue-300 font- mx-2 '>{search}</span></p>}
+          {cat && <p>دسته بندی : <span className='text-red-300 font-semibold mx-2'>{cat}</span></p>}
           </div>
         <RemoveFilters />
         </div>
-      ) : 'هیچ فیلتری انتخاب نشده است'}
+      ) : <p className='my-5 font-semibold'>هیچ فیلتری انتخاب نشده است</p>}
     </>
   )
 }

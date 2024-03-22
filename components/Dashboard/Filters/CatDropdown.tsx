@@ -28,11 +28,11 @@ useEffect(()=>{
     return (
         <div>
              <div className="dropdown inline-block relative ">
-    <button onClick={()=>setOpen(!open)} className="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+    <button onClick={()=>setOpen(!open)} className="bg-input-bg text-text-color font-semibold py-2 px-4 rounded inline-flex items-center">
       <span className="mr-1">دسته بندی</span>
       <span></span>
     </button>
-    <ul className={`dropdown-menu absolute ${!open && 'hidden'}  text-gray-700  w-52 p-2 rounded-md bg-gray-200 shadow mt-2`}>
+    <ul className={`dropdown-menu absolute ${!open && 'hidden'} bg-input-bg text-text-color  w-52 p-2 rounded-md  shadow mt-2`}>
      {data?.map((item:any)=>{
        return(
       

@@ -7,6 +7,7 @@ import 'react-quill/dist/quill.snow.css';
 import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
 import WriteModal from '@/components/Write/WriteModal';
+import { useRouter } from 'next/navigation';
 
 Quill.register('modules/imageResize', ImageResize);
 
@@ -32,6 +33,7 @@ interface Post {
   }
 
 function SiglePostDashboard() {
+    const router = useRouter();
     const params = useParams();
     const { id } = params;
     const [openModal, setOpenModal] = useState(false);
@@ -77,7 +79,7 @@ function SiglePostDashboard() {
             };
             setUpdatedPost(updatePostForModal);
         }
-    }, [openModal]);
+    }, [content,file,title]);
 
     
 
@@ -108,6 +110,8 @@ function SiglePostDashboard() {
             },
             body: JSON.stringify(updatePost)
         });
+       router.push('/dashboard/posts');
+       router.refresh()
         if(!response.ok) {
             throw new Error('Failed to update post');
         }
@@ -137,7 +141,7 @@ function SiglePostDashboard() {
             <br />
             <br />
 
-           <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={updatedPost} /> 
+            <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={updatedPost} /> 
 
             <form onSubmit={handleSubmit}>
                 <div className='mb-8'>

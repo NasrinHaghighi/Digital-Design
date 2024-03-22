@@ -20,16 +20,18 @@ async function ShowReply({item}:any) {
 
 
   return (
-    <div>{
+  <>
+      {
         data.map((item:any)=>{
-return <div className='border-2 border-gray-300 p-3 rounded-md mr-8'>
+return <div className='border-2 border-gray-300 p-3 rounded-md mr-8 mb-5'>
     <div className='mb-3'> پاسخ نویسنده :<span className='text-orange-500 px-2 '>{item.userName}</span></div>
     <div>{item.des}</div>
-    <EditeReply replyId={item.id} />
+    <EditeReply reply={item} />
     
 </div>
         })
-        }</div>
+        }
+        </>
   )
 }
 

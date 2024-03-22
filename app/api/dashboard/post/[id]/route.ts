@@ -31,9 +31,9 @@ export const GET = async (req: NextRequest,{params}:any) => {
 export const PUT = async (req: NextRequest,{params}:any) => {
 
     const {id}=params
-    console.log('id',id)
+   
     const body = await req.json();
-    console.log(body)
+   
     try {
         const post = await prisma.post.update({
             where: {

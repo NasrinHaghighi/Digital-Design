@@ -49,8 +49,13 @@ export const DELETE = async (req: Request) => {
    
 
   const { id } = body;
-  //console.log(id)
+  
     try {
+        await prisma.reply.deleteMany({
+            where: {
+                commentId: id as string
+            }
+        });
         await prisma.comment.delete({
             where: {
                 id: id as string

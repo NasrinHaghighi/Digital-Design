@@ -33,9 +33,9 @@ const handleInputChange = (event:any) => {
     router.push(updatedPath);
   };
   return (
-    <div className="group relative w-72 md:w-80 lg:w-96">
+    <div className="group relative w-72 md:w-80 lg:w- ">
   
-    <input  type="text" className="peer h-10 w-full rounded-md bg-gray-300 px-4 font-thin outline-none drop-shadow-sm transition-all duration-200 ease-in-out focus:bg-white focus:ring-2 focus:ring-blue-400" placeholder='جستجو...' 
+    <input  type="text" className=" h-10 w-full rounded-md bg-input-bg px-4 font-thin outline-none drop-shadow-sm transition-all duration-200 ease-in-out  focus:ring-2 " placeholder='جستجو...' 
    onChange={handleInputChange}
     value={searchQuery.search}
     id="search"

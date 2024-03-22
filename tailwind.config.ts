@@ -25,7 +25,8 @@ const config: Config = {
             "light-green":"var(--light-green)",
             "red-btn":"var(--red-btn)",
             "iconDisable": "var(--iconDisable)",
-          
+            "input-bg": "var(--input-bg)",
+            "input-bg2": "var(--input-bg2)",
           },
           screens: {
             'xxs':'320px',

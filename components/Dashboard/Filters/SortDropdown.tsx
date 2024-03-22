@@ -9,11 +9,11 @@ function Dropdown() {
     return (
         <div>
              <div className="dropdown inline-block relative ">
-    <button onClick={()=>setOpen(!open)} className="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+    <button onClick={()=>setOpen(!open)} className="bg-input-bg text-text-color font-semibold py-2 px-4 rounded inline-flex items-center">
       <span className="mr-1">مرتب کردن</span>
       <span></span>
     </button>
-    <ul className={`dropdown-menu absolute ${!open && 'hidden'}  text-gray-700  w-52 p-2 rounded-md bg-gray-200 shadow mt-2`}>
+    <ul className={`dropdown-menu absolute ${!open && 'hidden'} bg-input-bg text-text-color  w-52 p-2 rounded-md  shadow mt-2`}>
       <li className=""><Link className="rounded-md   hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" 
       href={`/dashboard/posts?sort=newest`} onClick={()=>setOpen(false)}>جدیدترین</Link></li>
       <li className="">

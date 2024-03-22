@@ -35,6 +35,7 @@ function ActionPostItem({ post }: Props) {
                 throw new Error('Failed to remove post');
             }
             router.push('/dashboard');
+            router.refresh()
             // Handle successful response
             console.log('Post removed successfully');
         } catch (error) {

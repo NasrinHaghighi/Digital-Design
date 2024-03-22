@@ -8,7 +8,7 @@ const handelRemove=()=>{
 
 function RemoveFilters() {
   return (
-    <div onClick={handelRemove}>حذف فیلتر ها</div>
+    <button onClick={handelRemove} className='py-3 px-2 bg-red-400 rounded-md'>حذف فیلتر ها</button>
   )
 }
 

@@ -16,6 +16,7 @@ async function Header() {
         <SignoutBtn />
       </div>
       <div className='md:font-semibold font-normal md:text-2xl text-l order-1'>{session?.user?.name} <span className="pl-5"></span><span className='text-green-500'>خوش آمدید</span></div>
+     
     </div>
   );
 }
