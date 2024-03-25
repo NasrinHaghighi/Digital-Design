@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Banner from '../../public/img/culture.png'
+import RenderDangerous from './RenderDangerous'
 
 
 
@@ -23,7 +24,8 @@ function PostListItem({ item }: any) {
 
         <div className="flex-1 ">  
         
-       <div className='text-center sm:text-right xs:text-base  text-wrap' dangerouslySetInnerHTML={{ __html: item?.des.substring(0, 200) + '...' }} />  
+        <RenderDangerous post={item}/>
+       {/* <div className='text-center sm:text-right xs:text-base  text-wrap' dangerouslySetInnerHTML={{ __html: item?.des.substring(0, 200) + '...' }} />   */}
         </div>
 
         <div className='text-sm flex justify-end xxs:justify-center items-center '>

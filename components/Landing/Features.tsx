@@ -1,8 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
 import Banner from '../../public/img/culture.png'
-import Link from 'next/link'
 
+import Link from 'next/link'
+import RenderDangerous from './RenderDangerous'
 
 /*GETDATA FUNC*/ 
 const getData = async () => {
@@ -29,13 +30,13 @@ async function Features() {
         </div>
         <div className="flex-1 ">  
         
-         <div className='text-center sm:text-right' dangerouslySetInnerHTML={{ __html: lastPost?.des.substring(0, 650) + '...' }} /> 
+         {/* <div className='text-center sm:text-right' dangerouslySetInnerHTML={{ __html: lastPost?.des.substring(0, 650) + '...' }} />  */}
         
-    
+    <RenderDangerous post={lastPost}/>
        
-       <div className='text-sm flex justify-end items-center '>
+        <div className='text-sm flex justify-end items-center '>
           <Link href={lastPost?.slug} className='border-b-2 border-gray-500 hover:border-red-500 py-1 hover:text-red-500' >ادامه مطلب</Link>
-        </div>
+        </div> 
         </div>
        </div>
     </div>

@@ -65,6 +65,7 @@ model VerificationToken {
 }
 model Category {
   id        String   @id @default(cuid()) @map("_id")
+  createdAt   DateTime  @default(now())
   slug      String   @unique
   title     String
   img       String?

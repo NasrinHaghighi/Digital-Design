@@ -12,17 +12,10 @@ interface ModalProps{
 }
 
 const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
-  console.log(values)
-const [empty, setEmpty] = useState(false);
 
 
-// useEffect(() => {
-//   if(!values.file || !values.value || !values.title) {
 
-//   setEmpty(true)
-//   }
-//   setEmpty(false)
-// },[])
+
   return (
     <>
    
@@ -38,12 +31,14 @@ const [empty, setEmpty] = useState(false);
          
                <div className="text-white text-center mt-12 text-lg font-semibold">پر کردن حداقل یکی از موارد الزامی است.</div>
             
-            
-                <div className=' bg-input-bg text-textColor rounded-md  max-h-[80vh] overflow-y-auto px-5 py-5 mx-5    sm:text-center'>
+         
+    
+                  
+              <div className=' bg-input-bg text-textColor rounded-md  max-h-[80vh] overflow-y-auto px-5 py-5 mx-5    sm:text-center'>
                     <div className="grid md:grid-flow-col grid-flow-row md:justify-around justify-center items-center w-l ">
                        
                         <div className="col-span-4 mb-10">
-                            <Image src={values?.file} alt='logo' width={200} height={200} className='object-cover rounded-md h-[300px] w-[300px]' />
+                          {values.file?     <Image src={values?.file} alt='logo' width={200} height={200} className='object-cover rounded-md h-[300px] w-[300px]' /> : '' }
                         </div>
                         <div className="col-span-8 ">  
                              <h2 className='md:text-2xl text-l font-bold py-8 text-rigth leading-relaxed'>{values?.title}</h2>
@@ -54,7 +49,7 @@ const [empty, setEmpty] = useState(false);
         <div className=' p-2 text-balance' dangerouslySetInnerHTML={{ __html: values?.value || '' }} />
    </div> 
                     
-                </div>
+                </div> 
           
             </div> 
         </div>
