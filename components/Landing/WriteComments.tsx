@@ -30,10 +30,10 @@ function WriteComments({postSlug}:any) {
   return (
     <>
     {session ?
-        <div>
+        <div className='px-5'>
          <h2 className="mb-5">ارسال نظر:</h2>
          <form onSubmit={handelSubmit}>
-        <input type="text" placeholder="نظر بدهید..."  className='w-full h-10 rounded-md border-2 border-gray-300 outline-none' value={des} onChange={(event)=>(setDes(event.target.value))} />
+        <input type="text" placeholder="نظر بدهید..."  className='w-full h-10 rounded-md border-2 border-gray-300 outline-none ' value={des} onChange={(event)=>(setDes(event.target.value))}/>
         <button type="submit" className="bg-blue-500 text-white px-5 py-2 rounded-md mt-5">ارسال</button>
         </form>
     </div>

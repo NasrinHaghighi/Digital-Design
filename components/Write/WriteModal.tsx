@@ -28,8 +28,8 @@ const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
       </div>
 
             <br/>            
-         
-               <div className="text-white text-center mt-12 text-lg font-semibold">پر کردن حداقل یکی از موارد الزامی است.</div>
+         {!values.title && !values.file && !values.value &&(
+               <div className="text-white text-center mt-12 text-lg font-semibold">پر کردن حداقل یکی از موارد الزامی است.</div>)}
             
          
     

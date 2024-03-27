@@ -65,3 +65,19 @@ export const DELETE = async (req: Request) => {
         });
     }
 };
+/*CREATE NEW CATEGORY*/
+export const POST = async (req: Request) => {
+    
+ 
+
+   try{
+    const body = await req.json();
+    
+    console.log('req body', body);
+    const category = await prisma.category.create({ data: { ...body,  } });
+    return new NextResponse(JSON.stringify(category), { status: 200 });
+   } catch(e:any){
+    console.log(e)
+    return new NextResponse(JSON.stringify({message:'SOME'}), {status: 500})
+}
+};

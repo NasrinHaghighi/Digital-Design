@@ -106,19 +106,20 @@ router.push('/');
 
     <div className='container pb-12 '>
       <h1 className='text-4xl font-bold p-8 text-center'>ایجاد متن جدید<span className='underline '></span></h1>
+
+<form onSubmit={formik.handleSubmit}>
 <div className='flex justify-center gap-10'>
- 
       <button className="bg-rose-500 text-white w-36 rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
       مشاهده متن
       </button>
-    
+      <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button>
      </div>
       <br />
       <br />
 
        <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={formik.values} />
 
-      <form onSubmit={formik.handleSubmit}>
+    
         <div className='mb-8'>
           <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-textColor">عنوان پست جدید</label>
           <input
@@ -169,7 +170,7 @@ router.push('/');
 
         <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****' className='bg-input-bg text-textColor'/>
         <br />
-        <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button>
+        {/* <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button> */}
       </form>
     </div>
 

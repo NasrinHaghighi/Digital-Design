@@ -11,9 +11,11 @@ function RenderDangerous({post}:any) {
     
   return (
     <>
+    <div >
     {render ?
-<div className='text-center sm:text-right' dangerouslySetInnerHTML={{ __html:render && post?.des.substring(0, 650) + '...' }} />
+<div className='text-center sm:text-right ' dangerouslySetInnerHTML={{ __html:render && post?.des.substring(0, 650) + '...' }} />
         : <p>loading</p>}
+        </div>
      </>
   )
 }

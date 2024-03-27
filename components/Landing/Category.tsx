@@ -14,27 +14,10 @@ const getData = async () => {
 }
 
 
- const bgCat=(title:string)=>{
-  let bgColor;
-  switch (title) {
-      case 'food':
-          bgColor = 'bg-light-blue';
-          break;
-      case 'travel':
-          bgColor = 'bg-light-purple';
-          break;
-          case 'culture':
-            bgColor = 'bg-light-pink';
-            break;
-            case 'fashion':
-              bgColor = 'bg-light-green';
-              break;
-      // Add more cases as needed for different titles and colors
-      default:
-          bgColor = ''; // Default value if title doesn't match any case
-  }
-  return bgColor;
- }
+const bgCat = (index:number) => {
+  const colors = ['bg-light-blue', 'bg-light-purple', 'bg-light-pink', 'bg-light-green']; // Add more colors as needed
+  return colors[index % colors.length];
+}
 
  async function Category() {
   const data = await getData()
@@ -45,12 +28,12 @@ const getData = async () => {
 
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center gap-4 p-4">
           
-          {data?.map((item:any)=>{
+          {data?.map((item:any, index:number)=>{
                        return(
-              <Link key={item._id} href={`/blog?cat=${item.slug}`} className={`${bgCat(item.title)} rounded-md p-4 flex justify-center gap-4  items-center md:w-36 w-52 lg:w-52 m-auto mb-5`}>
+              <Link key={item._id} href={`/blog?cat=${item.slug}`} className={`${bgCat(index)} rounded-md p-4 flex justify-center gap-4  items-center md:w-36 w-52 lg:w-52 m-auto mb-5`}>
                  <span>{item.title}</span>
-                 <div className="rounded-full overflow-hidden  w-10 h-10 ">
-                 <Image src={`/img/${item.img}`} width={40} height={40} alt='logo'/></div>
+                 {/* <div className="rounded-full overflow-hidden  w-10 h-10 ">
+                 <Image src={`/img/${item.img}`} width={40} height={40} alt='logo'/></div> */}
                </Link>
             )
           })}

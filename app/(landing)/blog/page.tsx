@@ -7,7 +7,7 @@ async function Blogpage({params, searchParams}: any) {
   const cat =searchParams.cat || ''
 
   return (
-    <div>
+    <div className=''>
        <div className='flex justify-center py-4 my-10 bg-red-500 rounded-md text-xl font-semibold'>{cat}</div>
         <div className="grid md:grid-flow-col grid-flow-row gap-8 p-4 mt-8">
    <div className="md:col-span-4 col-span-12 order-2 md:order-1 text-center xs:text-rigth ">

@@ -8,7 +8,7 @@ function Pagination({page,hasPrev, hasNext, cat}:{page:number,hasPrev:boolean,ha
    
   return (
    <>
-   <div className='flex justify-between items-center gap-10 py-10'>
+   <div className='flex justify-between items-center gap-10 py-10 flex-col md:flex-row'>
      
       <button className={` px-8 py-4 rounded-md ${!hasNext ? 'bg-iconDisable' : 'bg-icons'} `}
       onClick={() => router.push(`?page=${page + 1}&cat=${cat}`)}

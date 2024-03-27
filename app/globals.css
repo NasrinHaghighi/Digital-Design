@@ -17,6 +17,23 @@
 #root {
   margin: 1rem 4rem;
 }
+@layer utilities {
+  .masonry {
+    column-gap: 1.5em;
+    column-count: 2;
+  }
+  .masonry-sm {
+    column-gap: 1.5em;
+    column-count: 2;
+  }
+  .masonry-md {
+    column-gap: 1.5em;
+    column-count: 3;
+  }
+  .break-inside {
+    break-inside: avoid;
+  }
+}
 .quill{
   
 border-radius: 10px !important;
@@ -98,8 +115,26 @@ button:hover .ql-fill,
   fill: red !important;
   stroke: none;
 }
+.ql-syntax{
+  text-align: left !important;
+  direction: ltr !important;
+ padding: 15px !important;
+ background-color: #cac9cf;
+ border-radius: 15px !important;
+}
 
-
+@media (max-width: 800px) {
+  .ql-syntax {
+    width: 500px !important;
+    overflow-x: auto;
+   
+  }
+}
+@media (max-width: 500px) {
+  .ql-syntax {
+    width: 420px !important;
+  }
+}
 :root {
   --font-family-body: 'vazir', sans-serif;
   --bg:rgb(246, 246, 252);

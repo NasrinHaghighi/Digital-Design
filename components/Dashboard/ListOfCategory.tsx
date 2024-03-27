@@ -21,12 +21,12 @@ const getData = async () => {
 
 async function ListOfCategory() {
     const data = await getData();
-
+console.log(data);
     return (
         <div>
             {data.map((item: Category) => {
                 return <CategoryItem key={item.id} item={item} />
-            })}
+            })} 
         </div>
     );
 }

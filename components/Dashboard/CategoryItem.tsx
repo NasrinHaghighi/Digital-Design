@@ -34,14 +34,14 @@ async function CategoryItem({ item }: { item: Category }) {
                 </div>
                 <div className='mb-3'>
                     نام دسته بندی:
-                    <span className='text-green-400 font-semibold text-lg'>
+                    <span className='text-blue-400 font-semibold text-lg'>
                         {item.title}
                     </span>
                 </div>
                 <div className='mb-3 flex justify-between items-center'>
                     <div>
                     <span> تعداد پست : </span>
-                    <span className='text-blue-400 font-semibold text-lg'>{data.posts.length}</span>
+                    <span className='text-orange-400 font-semibold text-lg'>{data.posts.length}</span>
                     </div>
                  <RemoveCategory slug={item.slug} />
                </div>
