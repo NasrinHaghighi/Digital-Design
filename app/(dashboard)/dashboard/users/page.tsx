@@ -12,17 +12,23 @@ const getData = async () => {
     return res.json();
   }
 async function DashboardUserPage() {
-    const data= await getData();
-  
+  const data = await getData();
+
   return (
     <div>
-        {data?.map((item: any) => {
-            return (
-              <DashboardUserItem item={item} />
-            )
-        })}
+      {data.length < 1 ? (
+        <p>کاربری ثبت نشده است .</p>
+      ) : (
+        <div>
+          <h1 className="text-2xl mb-8">لیست   کاربران :</h1>
+          {data?.map((item: any) => {
+            return <DashboardUserItem item={item} />;
+          })}
+        </div>
+      )}
     </div>
-  )
+  );
 }
+
 
 export default DashboardUserPage

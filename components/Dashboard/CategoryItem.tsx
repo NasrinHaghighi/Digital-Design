@@ -28,23 +28,26 @@ async function CategoryItem({ item }: { item: Category }) {
             <div className='bg-input-bg2 p-5 rounded-lg shadow-md first-line: '>
                 <div className='text-gary-500 mb-3'>
                     ایجاد شده در تاریخ:
-                    <span className='text-green-500 font-semibold'>
+                    <span className='text-green-500 font-semibold mr-3'>
                         {item.createdAt ? item.createdAt.substring(0, 10) : ''}
                     </span>
                 </div>
-                <div className='mb-3'>
+                <div className='mb-3 '>
                     نام دسته بندی:
-                    <span className='text-blue-400 font-semibold text-lg'>
+                    <span className='text-blue-400 font-semibold text-lg mr-3'>
                         {item.title}
                     </span>
                 </div>
                 <div className='mb-3 flex justify-between items-center'>
                     <div>
                     <span> تعداد پست : </span>
-                    <span className='text-orange-400 font-semibold text-lg'>{data.posts.length}</span>
+                    <span className='text-orange-400 font-semibold text-lg mr-2'>{data.posts.length}</span>
                     </div>
-                 <RemoveCategory slug={item.slug} />
+                
                </div>
+               <div >
+                 <RemoveCategory item={item} />
+                 </div>
             </div>
         </div>
     )

@@ -81,3 +81,39 @@ export const POST = async (req: Request) => {
     return new NextResponse(JSON.stringify({message:'SOME'}), {status: 500})
 }
 };
+
+/*edite a category name*/
+export const PUT = async (req: Request) => {
+    const body = await req.json();
+   
+
+  const { slug, title } = body;
+  console.log(slug,title)
+  if (!slug || !title) {
+    return new NextResponse(JSON.stringify({ message: 'Slug and title are required' }), {
+        status: 400
+    });
+}
+    try {
+      const updatedCategoryName = await prisma.category.update({
+            where: {
+                slug: slug as string
+            },
+            data: {
+                title: title // Assuming 'des' is the field you want to update
+            }
+        });
+        // Fetch the updated list of comments
+        const categories = await prisma.category.findMany();
+
+
+        return new NextResponse(JSON.stringify({ categories }), {
+            status: 200
+        });
+
+    } catch (error: any) {
+        return new NextResponse(JSON.stringify({ message: error.message }), {
+            status: 500
+        });
+    }
+};

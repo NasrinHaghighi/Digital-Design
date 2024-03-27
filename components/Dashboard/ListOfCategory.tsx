@@ -21,15 +21,23 @@ const getData = async () => {
 
 async function ListOfCategory() {
     const data = await getData();
-console.log(data);
+
     return (
         <div>
-            {data.map((item: Category) => {
-                return <CategoryItem key={item.id} item={item} />
-            })} 
+            {data.length < 1 ? (
+                <p>دسته بندی ثبت نشده است .</p>
+            ) : (
+                <div>
+                    <h1 className='text-2xl mb-8'>لیست دسته بندی ها :</h1>
+                    {data.map((item: Category) => {
+                        return <CategoryItem key={item.id} item={item} />;
+                    })}
+                </div>
+            )}
         </div>
     );
 }
+
 
 
 export default ListOfCategory

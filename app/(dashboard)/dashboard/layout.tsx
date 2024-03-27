@@ -12,11 +12,11 @@ function DashboardLayout({children}:MainLayoutProps) {
             <div className="grid grid-cols-12 gap-8 mt-8 ">
    
                  
-                   <div className='md:col-span-3 col-span-12 md:order-1 order-1'>
+                   <div className='lg:col-span-3 col-span-12 lg:order-1 order-1'>
                     <Sidebar />
                     
                    </div>
-                   <div className='md:col-span-9 col-span-12 md:order-2 order-2'>{children}</div>
+                   <div className='lg:col-span-9 col-span-12 lg:order-2 order-2'>{children}</div>
           </div>
             </>
             )

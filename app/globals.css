@@ -119,7 +119,7 @@ button:hover .ql-fill,
   text-align: left !important;
   direction: ltr !important;
  padding: 15px !important;
- background-color: #cac9cf;
+ background-color: #f0eff1;
  border-radius: 15px !important;
 }
 
@@ -156,7 +156,7 @@ button:hover .ql-fill,
   --textPurple:#A39FB4;
 }
 [data-theme="dark"] {
-  --bg:rgb(19, 16, 28);
+  --bg:rgb(46, 38, 65);
   --textColor:rgb(247, 243, 239);
   --softBg:#1f273a;
   --softTextColor:#a6a6a6;
@@ -195,6 +195,9 @@ body{
 a{
   text-decoration: none;
   color: inherit;
+}
+input{
+  background-color: #e6e5eb !important;
 }
 /* .wrapper{
   min-height: 100vh;
