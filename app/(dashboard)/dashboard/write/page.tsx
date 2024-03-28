@@ -2,7 +2,7 @@
 import React , { useState ,useEffect ,useMemo} from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import ReactQuill from 'react-quill';
+//import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { CiCirclePlus } from "react-icons/ci";
 import Upload from '@/components/Write/Upload';
@@ -13,7 +13,10 @@ import WriteModal from '@/components/Write/WriteModal';
 import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
+// Dynamically import the Quill editor component
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 
 Quill.register('modules/imageResize', ImageResize);
