@@ -119,8 +119,9 @@ button:hover .ql-fill,
   text-align: left !important;
   direction: ltr !important;
  padding: 15px !important;
- background-color: #f0eff1;
+ background-color: #3d2f4b;
  border-radius: 15px !important;
+ color: #EEEEEE !important;
 }
 
 @media (max-width: 800px) {
@@ -197,7 +198,7 @@ a{
   color: inherit;
 }
 input{
-  background-color: #e6e5eb !important;
+/* background-color: #2e255f !important; */
 }
 /* .wrapper{
   min-height: 100vh;
