@@ -30,7 +30,7 @@ function EditeReply({reply}:any) {
           setOpenEdite(false);
          
         },[reply.des])
-      
+      // eslint-disable-next-line react-hooks/exhaustive-deps
         useEffect(() => {setValue(reply.des)},[])
   return (
     <>

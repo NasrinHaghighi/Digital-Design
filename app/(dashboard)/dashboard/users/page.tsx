@@ -22,7 +22,7 @@ async function DashboardUserPage() {
         <div>
           <h1 className="text-2xl mb-8">لیست   کاربران :</h1>
           {data?.map((item: any) => {
-            return <DashboardUserItem item={item} />;
+            return <DashboardUserItem item={item} key={item.id}/>;
           })}
         </div>
       )}

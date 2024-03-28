@@ -57,7 +57,7 @@ function CommentDashboardItem({ item }: Props) {
 
     }
 
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
        useEffect(() => {
         fetchReplies();
   

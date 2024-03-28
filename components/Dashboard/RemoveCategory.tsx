@@ -60,7 +60,8 @@ const [value, setValue] = useState('');
                console.error('Error edited category:', error);
            }
        }
-       useEffect(() => {setValue(item?.title)},[])
+       // eslint-disable-next-line react-hooks/exhaustive-deps
+       useEffect(() => {setValue(item?.title || '')},[])
   return (
     <>
     <div className='flex  justify-end'>

@@ -8,6 +8,7 @@ import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
 import WriteModal from '@/components/Write/WriteModal';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 Quill.register('modules/imageResize', ImageResize);
 
@@ -79,7 +80,7 @@ function SiglePostDashboard() {
             };
             setUpdatedPost(updatePostForModal);
         }
-    }, [content,file,title]);
+    }, [content,file,title,openModal, category, postData?.img ]);
 
     
 
@@ -183,7 +184,7 @@ function SiglePostDashboard() {
                             <div>مشاهده تصویر جدید:
                                
                              {file instanceof File && (
-  <img src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' />
+  <Image src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' />
 )}
 {typeof file === 'string' && <img src={file} alt='preview' className='h-40 w-40 object-cover rounded-lg' />}
                             </div>

@@ -12,6 +12,7 @@ import Link from 'next/link';
 import WriteModal from '@/components/Write/WriteModal';
 import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
+import Image from 'next/image';
 
 Quill.register('modules/imageResize', ImageResize);
 // const SignupSchema = Yup.object().shape({
@@ -95,7 +96,7 @@ router.push('/');
             file: file
             
         });
-   
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value, file]);
     useEffect(() => {
 
@@ -159,9 +160,9 @@ router.push('/');
                 <Upload setFile={setFile} />
 <div>
                 {file instanceof File && (
-  <img src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' />
+  <Image src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' />
 )}
-{typeof file === 'string' && <img src={file} alt='preview' className='h-40 w-40 object-cover rounded-lg' />}</div>
+{typeof file === 'string' && <Image src={file} alt='preview' className='h-40 w-40 object-cover rounded-lg' />}</div>
               </div>
             }
           </div>
