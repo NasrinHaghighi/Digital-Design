@@ -105,29 +105,6 @@ router.push('/');
         });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value, file]);
-    const modules = useMemo(() => ({
-      toolbar: [
-        [{ 'size': ['small', false, 'large', 'huge'] }],
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-        ['blockquote', 'code-block'],
-        [
-          { list: 'ordered' },
-          { list: 'bullet' },
-          { indent: '-1' },
-          { indent: '+1' }
-        ],
-        ['link', 'image', 'video'],
-        ['clean'],
-        [{ 'align': [] }],
-      ],
-      clipboard: {
-        matchVisual: false
-      },
-      imageResize: {
-        modules: ['Resize', 'DisplaySize']
-      }
-    }), []);
 
     
   return (
@@ -208,33 +185,33 @@ router.push('/');
 
 export default WritePage
 
-// const modules = {
-//   toolbar: [
-//     [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-//     [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-//     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-//     ['blockquote', 'code-block'],
-//     [
-//       { list: 'ordered' },
-//       { list: 'bullet' },
-//       { indent: '-1' },
-//       { indent: '+1' }
-//     ],
-//     ['link', 'image', 'video'],
-//     ['clean'],
-//     // [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
+const modules = {
+  toolbar: [
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    ['blockquote', 'code-block'],
+    [
+      { list: 'ordered' },
+      { list: 'bullet' },
+      { indent: '-1' },
+      { indent: '+1' }
+    ],
+    ['link', 'image', 'video'],
+    ['clean'],
+    // [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
    
-//     [{ 'align': [] }],
-//   ],
-//   clipboard: {
-//     // toggle to add extra line breaks when pasting HTML:
-//     matchVisual: false
-//   },
-//   imageResize: {
-//     parchment: Quill.import('parchment'),
-//     modules: ['Resize', 'DisplaySize']
-//   }
-// }
+    [{ 'align': [] }],
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false
+  },
+  imageResize: {
+    parchment: Quill.import('parchment'),
+    modules: ['Resize', 'DisplaySize']
+  }
+}
 
 
 
