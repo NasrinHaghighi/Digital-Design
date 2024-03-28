@@ -1,5 +1,5 @@
 'use client';
-import React , { useState ,useEffect} from 'react'
+import React , { useState ,useEffect ,useMemo} from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import ReactQuill from 'react-quill';
@@ -8,13 +8,17 @@ import { CiCirclePlus } from "react-icons/ci";
 import Upload from '@/components/Write/Upload';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
+
 import WriteModal from '@/components/Write/WriteModal';
 import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
 import Image from 'next/image';
 
+
+
 Quill.register('modules/imageResize', ImageResize);
+
+
 // const SignupSchema = Yup.object().shape({
 //     title: Yup.string()
 //       .min(10, 'Too Short!')
@@ -98,9 +102,29 @@ router.push('/');
         });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value, file]);
-    useEffect(() => {
-
-    },[value])
+    const modules = useMemo(() => ({
+      toolbar: [
+        [{ 'size': ['small', false, 'large', 'huge'] }],
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+        ['blockquote', 'code-block'],
+        [
+          { list: 'ordered' },
+          { list: 'bullet' },
+          { indent: '-1' },
+          { indent: '+1' }
+        ],
+        ['link', 'image', 'video'],
+        ['clean'],
+        [{ 'align': [] }],
+      ],
+      clipboard: {
+        matchVisual: false
+      },
+      imageResize: {
+        modules: ['Resize', 'DisplaySize']
+      }
+    }), []);
 
     
   return (
@@ -181,33 +205,33 @@ router.push('/');
 
 export default WritePage
 
-const modules = {
-  toolbar: [
-    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    ['blockquote', 'code-block'],
-    [
-      { list: 'ordered' },
-      { list: 'bullet' },
-      { indent: '-1' },
-      { indent: '+1' }
-    ],
-    ['link', 'image', 'video'],
-    ['clean'],
-    // [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
+// const modules = {
+//   toolbar: [
+//     [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+//     [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+//     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+//     ['blockquote', 'code-block'],
+//     [
+//       { list: 'ordered' },
+//       { list: 'bullet' },
+//       { indent: '-1' },
+//       { indent: '+1' }
+//     ],
+//     ['link', 'image', 'video'],
+//     ['clean'],
+//     // [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
    
-    [{ 'align': [] }],
-  ],
-  clipboard: {
-    // toggle to add extra line breaks when pasting HTML:
-    matchVisual: false
-  },
-  imageResize: {
-    parchment: Quill.import('parchment'),
-    modules: ['Resize', 'DisplaySize']
-  }
-}
+//     [{ 'align': [] }],
+//   ],
+//   clipboard: {
+//     // toggle to add extra line breaks when pasting HTML:
+//     matchVisual: false
+//   },
+//   imageResize: {
+//     parchment: Quill.import('parchment'),
+//     modules: ['Resize', 'DisplaySize']
+//   }
+// }
 
 
 
