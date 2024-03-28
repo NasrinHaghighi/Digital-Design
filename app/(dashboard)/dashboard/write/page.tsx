@@ -195,8 +195,8 @@ router.push('/');
           </div>
 
         </div>
-
-        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****' className='bg-white text-textColor'/>
+        {typeof window !== 'undefined' && (
+        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****' className='bg-white text-textColor'/>)}
         <br />
         {/* <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button> */}
       </form>
