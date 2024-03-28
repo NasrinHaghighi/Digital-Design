@@ -2,7 +2,7 @@
 import React , { useState ,useEffect ,useMemo} from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
-//import ReactQuill from 'react-quill';
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { CiCirclePlus } from "react-icons/ci";
 import Upload from '@/components/Write/Upload';
@@ -16,7 +16,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 // Dynamically import the Quill editor component
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+
 
 
 Quill.register('modules/imageResize', ImageResize);
@@ -172,8 +172,8 @@ router.push('/');
           </div>
 
         </div>
-        {typeof window !== 'undefined' && (
-        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****' className='bg-white text-textColor'/>)}
+      
+        <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****' className='bg-white text-textColor'/>
         <br />
         {/* <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button> */}
       </form>
