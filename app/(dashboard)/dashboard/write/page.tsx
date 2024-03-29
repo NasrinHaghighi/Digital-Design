@@ -164,6 +164,7 @@ router.push('/');
               <div className='md:flex:row jutify-center items-center gap-5 flex-col'>
                 {/* UPLOAD COMPONENT */}
                 <Upload setFile={setFile} />
+                 {/* UPLOAD COMPONENT */}
 <div>
                 {file instanceof File && (
   <Image src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' width={40} height={40}/>
@@ -174,8 +175,11 @@ router.push('/');
           </div>
 
         </div>
-      
+      {(typeof window !== 'undefined') ? 
         <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}  bounds={'#root'} placeholder='****' className='bg-white text-textColor'/>
+        : <p>loading....</p>
+    // Code that uses window
+}
         <br />
         {/* <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button> */}
       </form>
