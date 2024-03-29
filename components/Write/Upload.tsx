@@ -22,18 +22,15 @@ function Upload({setFile}:any) {
           }
       };
 
-      const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    console.log(e.currentTarget);
-      }
+   
   return (
     <>
-    <form onSubmit={handelSubmit}>
+   
     <input type="file" id="file" name="value" accept="image/*"  onChange={handleFileChange} style={{ display: "none" }} />
     <label htmlFor="file" className=' flex items-center gap-5'>
         <span className='text-green-800'>تصویر مورد نظر را اضافه کنید:</span><GrUploadOption className='text-red-800 text-4xl font-extrabold'/>
     </label>
-    </form>
+
     </>
   )
 }

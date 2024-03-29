@@ -2,8 +2,8 @@
 import React , { useState ,useEffect ,useMemo} from 'react'
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+//import ReactQuill from 'react-quill';
+
 import { CiCirclePlus } from "react-icons/ci";
 import Upload from '@/components/Write/Upload';
 import { useRouter } from 'next/navigation';
@@ -13,8 +13,9 @@ import WriteModal from '@/components/Write/WriteModal';
 import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
-
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import 'react-quill/dist/quill.snow.css';
 // Dynamically import the Quill editor component
 
 
@@ -161,12 +162,13 @@ router.push('/');
             <div onClick={() => setOpen(!open)}><CiCirclePlus className='text-green-800 text-5xl font-extrabold' /></div>
             {open &&
               <div className='md:flex:row jutify-center items-center gap-5 flex-col'>
+                {/* UPLOAD COMPONENT */}
                 <Upload setFile={setFile} />
 <div>
                 {file instanceof File && (
-  <Image src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' />
+  <Image src={URL.createObjectURL(file)} alt='preview' className='h-40 w-40 object-cover rounded-lg' width={40} height={40}/>
 )}
-{typeof file === 'string' && <Image src={file} alt='preview' className='h-40 w-40 object-cover rounded-lg' />}</div>
+{typeof file === 'string' && <Image src={file} alt='preview' width={40} height={40}className='h-40 w-40 object-cover rounded-lg' />}</div>
               </div>
             }
           </div>
@@ -201,7 +203,7 @@ const modules = {
     ['clean'],
     // [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
    
-    [{ 'align': [] }],
+    // [{ 'align': [] }],
   ],
   clipboard: {
     // toggle to add extra line breaks when pasting HTML:
