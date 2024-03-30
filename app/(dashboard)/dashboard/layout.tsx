@@ -8,8 +8,8 @@ interface MainLayoutProps {
 function DashboardLayout({children}:MainLayoutProps) {
     return (
         <>
-           <Header />
-            <div className="grid grid-cols-12 gap-8 mt-8 ">
+            <Header /> 
+             <div className="grid grid-cols-12 gap-8 mt-8 ">
    
                  
                    <div className='lg:col-span-3 col-span-12 lg:order-1 order-1'>
@@ -17,7 +17,7 @@ function DashboardLayout({children}:MainLayoutProps) {
                     
                    </div>
                    <div className='lg:col-span-9 col-span-12 lg:order-2 order-2'>{children}</div>
-          </div>
+          </div> 
             </>
             )
 }
