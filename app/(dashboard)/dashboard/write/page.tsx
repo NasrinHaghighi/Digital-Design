@@ -143,7 +143,7 @@ const modules = {
     matchVisual: false
   },
   imageResize: {
-    parchment: Quill.import('parchment'),
+    //parchment: Quill.import('parchment'),
     modules: ['Resize', 'DisplaySize']
   }
 }
