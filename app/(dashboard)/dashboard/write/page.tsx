@@ -10,17 +10,17 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
 import WriteModal from '@/components/Write/WriteModal';
-import ImageResize from 'quill-image-resize-module-react';
-import Quill from 'quill';
+//import ImageResize from 'quill-image-resize-module-react';
+//import Quill from 'quill';
 import Image from 'next/image';
-import dynamic from "next/dynamic";
-const ReactQuill = typeof window !== 'undefined' ? dynamic(() => import('react-quill'), { ssr: false }) : null;
-import 'react-quill/dist/quill.snow.css';
+// import dynamic from "next/dynamic";
+// const ReactQuill = typeof window !== 'undefined' ? dynamic(() => import('react-quill'), { ssr: false }) : null;
+// import 'react-quill/dist/quill.snow.css';
 // Dynamically import the Quill editor component
 
 
 
-Quill.register('modules/imageResize', ImageResize);
+//Quill.register('modules/imageResize', ImageResize);
 
 
 // const SignupSchema = Yup.object().shape({
