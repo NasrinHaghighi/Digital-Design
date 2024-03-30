@@ -14,7 +14,7 @@ import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
 import Image from 'next/image';
 import dynamic from "next/dynamic";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+const ReactQuill = typeof window !== 'undefined' ? dynamic(() => import('react-quill'), { ssr: false }) : null;
 import 'react-quill/dist/quill.snow.css';
 // Dynamically import the Quill editor component
 
