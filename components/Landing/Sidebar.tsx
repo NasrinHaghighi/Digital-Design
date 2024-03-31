@@ -30,12 +30,12 @@ return   <div className='flex flex-col gap-3 p-4 border-b-2 border-gray-200 mb-5
           <div className='text-gray-500'><span className='text-green-500'>{item.userName ? item.userName : 'Ali'}</span> <span>{item.createdAt.substring(0,10)}</span></div>
   </div>
     })}
-  
+  <div className='text-center my-5'>
   <h1 className='text-2xl mb-5'>دسته بندی ها </h1>
 
   <CategorySidebar />
 
-
+  </div>
     </>
   )
 }

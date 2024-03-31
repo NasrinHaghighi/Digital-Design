@@ -39,7 +39,7 @@ async function Comments({postSlug}:any) {
 const data = await getData ({postSlug})
    
   return (
-    <div className="my-10 max-w-full border-t-2 border-gray-300 py-5">
+    <div className="my-10  border-t-2 border-gray-300 sm:mx-0 mx-3">
              <WriteComments postSlug={postSlug} />
        <br/>
        <br/>

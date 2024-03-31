@@ -136,6 +136,11 @@ button:hover .ql-fill,
     width: 420px !important;
   }
 }
+@media (max-width: 400px) {
+  .ql-syntax {
+    width: 320px !important;
+  }
+}
 :root {
   --font-family-body: 'vazir', sans-serif;
   --bg:rgb(246, 246, 252);
@@ -193,6 +198,11 @@ body{
 
   
 }
+/* @media (max-width: 400px) {
+  body {
+    font-size: 14px; 
+  }
+} */
 a{
   text-decoration: none;
   color: inherit;

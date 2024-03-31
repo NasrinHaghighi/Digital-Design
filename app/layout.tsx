@@ -26,7 +26,7 @@ export default function RootLayout({
         <AuthProvider>
       <ThemeProviders>
       <div className="lg:mx-auto  max-w-screen-xl ">
-        <div className="max-w-screen-2xl lg:m-auto md:p-10 xxs:p-3 m-auto  overflow-x-hidden ">
+        <div className="max-w-screen-2xl lg:m-auto md:p-10 xs:overflow-x-hidden ">
       
       {children}
     

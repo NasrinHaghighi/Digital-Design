@@ -18,10 +18,10 @@ async function CategorySidebar() {
 
   return (
    
-    <div className="masonry sm:masonry-sm md:masonry-md">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
       {data?.map((item: any, index:number) => (
       
-          <p className={`${bgCat(index)} rounded-md p-4 mb-3 text-center`} key={item.id}>{item.title}</p>
+          <p className={`${bgCat(index)} rounded-md p-4 mb-3 text-center xs:w-auto max-w-36`} key={item.id}>{item.title}</p>
       
       ))}
     </div>
