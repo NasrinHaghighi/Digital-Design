@@ -1,7 +1,7 @@
 'use client'
 
-import React from 'react'
-import ReactQuill from 'react-quill';
+import React ,{useMemo}from 'react'
+//import ReactQuill from 'react-quill';
 import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
 import Image from 'next/image';
@@ -13,6 +13,7 @@ Quill.register('modules/imageResize', ImageResize);
 
 
 function ReactQuillBox({value, setValue}:any) {
+    const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
   return (
     <>
     {(typeof window !== 'undefined') ? 
