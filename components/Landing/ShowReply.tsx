@@ -5,7 +5,7 @@ import EditeReply from './EditeReply';
 
 const getData = async (id: any) => {
     
-    const res = await fetch(`http://localhost:3000/api/replies?commentId=${id}`, { cache: 'no-store' },);
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/replies?commentId=${id}`, { cache: 'no-store' },);
   
     if (!res.ok) {
       throw new Error('Network response was not ok');

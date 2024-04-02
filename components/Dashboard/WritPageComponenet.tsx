@@ -45,7 +45,7 @@ function WritPageComponenet() {
     const handelSubmit = async(values:any) => {
     
       
-        const res = await fetch('http://localhost:3000/api/post', {
+        const res = await fetch('/api/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -96,6 +96,7 @@ function WritPageComponenet() {
       <button className="bg-rose-500 text-white w-36 rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
       مشاهده متن
       </button>
+      <span>***</span>
       <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button>
      </div>
       <br />

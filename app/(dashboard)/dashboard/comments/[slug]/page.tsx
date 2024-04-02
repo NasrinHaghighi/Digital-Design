@@ -2,7 +2,7 @@ import CommentDashboardItem from '@/components/Dashboard/CommentDashboardItem';
 import React from 'react'
 
 const getData = async ({postSlug}:any) => {
-    const res = await fetch(`http://localhost:3000/api/dashboard/comments/${postSlug}`, { cache: 'no-store' }, );
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/dashboard/comments/${postSlug}`, { cache: 'no-store' }, );
   
     if (!res.ok) {
       throw new Error('Network response was not ok');

@@ -10,10 +10,10 @@ function WriteComments({postSlug}:any) {
     const [des, setDes] = useState('')
     const router = useRouter()
     const handelSubmit =async (event:any) => {
-        console.log('by ersal nazar', des, postSlug)
+        //console.log('by ersal nazar', des, postSlug)
           event.preventDefault()
           try {
-            await fetch('http://localhost:3000/api/comments', {
+            await fetch(`/api/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

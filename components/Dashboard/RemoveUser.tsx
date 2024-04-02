@@ -14,7 +14,7 @@ function RemoveUser({user}:{user:User}) {
     const router = useRouter();
     const handelRemove = async (email:string) => {
         try {
-            await fetch(`http://localhost:3000/api/user`, {
+            await fetch(`/api/user`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

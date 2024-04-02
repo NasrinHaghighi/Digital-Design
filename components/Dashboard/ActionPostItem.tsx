@@ -18,10 +18,10 @@ function ActionPostItem({ post }: Props) {
  const removeHandle = async (post:any) => {
    
     const {id,slug} = post;
-   console.log(id,slug)
+ //  console.log(id,slug)
         try {
             // Call API to remove post  
-            const res = await fetch(`http://localhost:3000/api/post`,
+            const res = await fetch(`/api/post`,
                 {
                     method: 'DELETE',
                     headers: {

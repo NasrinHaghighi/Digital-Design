@@ -55,7 +55,7 @@ function SiglePostDashboard() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/api/dashboard/post/${id}`);
+                const response = await fetch(`/api/dashboard/post/${id}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch post data');
                 }
@@ -104,7 +104,7 @@ function SiglePostDashboard() {
       
       // console.log('Updating post: ', updatePost);
     
-        const response = await fetch(`http://localhost:3000/api/dashboard/post/${id}`, {
+        const response = await fetch(`/api/dashboard/post/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -142,7 +142,7 @@ function SiglePostDashboard() {
             <br />
             <br />
 
-            <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={updatedPost} /> 
+            {/* <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={updatedPost} />  */}
 
             <form onSubmit={handleSubmit}>
                 <div className='mb-8'>

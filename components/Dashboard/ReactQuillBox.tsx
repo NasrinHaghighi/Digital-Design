@@ -4,7 +4,7 @@ import React ,{useMemo}from 'react'
 //import ReactQuill from 'react-quill';
 import ImageResize from 'quill-image-resize-module-react';
 import Quill from 'quill';
-import Image from 'next/image';
+
 import dynamic from "next/dynamic";
 //const ReactQuill = typeof window !== 'undefined' ? dynamic(() => import('react-quill'), { ssr: false }) : null;
 import 'react-quill/dist/quill.snow.css';

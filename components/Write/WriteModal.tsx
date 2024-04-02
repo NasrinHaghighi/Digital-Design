@@ -28,8 +28,8 @@ const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
       </div>
 
             <br/>            
-         {!values.title && !values.file && !values.value &&(
-               <div className="text-white text-center mt-12 text-lg font-semibold">پر کردن حداقل یکی از موارد الزامی است.</div>)}
+         {/* {!values.title && !values.file && !values.value &&(
+               <div className="text-white text-center mt-12 text-lg font-semibold">پر کردن حداقل یکی از موارد الزامی است.</div>)} */}
             
          
     
@@ -38,7 +38,7 @@ const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
                     <div className="grid md:grid-flow-col grid-flow-row md:justify-around justify-center items-center w-l ">
                        
                         <div className="col-span-4 mb-10">
-                          {values.file?     <Image src={values?.file} alt='logo' width={200} height={200} className='object-cover rounded-md h-[300px] w-[300px]' /> : '' }
+                             <Image src={values?.file} alt='logo' width={200} height={200} className='object-cover rounded-md h-[300px] w-[300px]' /> 
                         </div>
                         <div className="col-span-8 ">  
                              <h2 className='md:text-2xl text-l font-bold py-8 text-rigth leading-relaxed'>{values?.title}</h2>
@@ -61,8 +61,3 @@ const WriteModal:React.FC<ModalProps> =({openModal, setOpenModal, values}) =>{
 }
 
 export default WriteModal
-
-{/* <div className="relative top-40 mx-auto shadow-xl rounded-md bg-white max-w-md p-4">
-                        <h1>Modal Content</h1>
-                        <button onClick={() => setOpenModal(false)} className='bg-red-500'>Close</button>
-                    </div> */}

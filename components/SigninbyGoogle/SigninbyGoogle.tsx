@@ -2,10 +2,10 @@
 
 import React from 'react'
 import { useSession,signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+
 
 function LoginPage() {
-  const router = useRouter()
+ 
  const {data, status} = useSession()
  
 if(status === 'loading') return <div>Loading...</div>

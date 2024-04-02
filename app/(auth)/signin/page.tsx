@@ -29,7 +29,7 @@ function SigninPage() {
       email: values.email,
       password: values.password,redirect: false
     })
-   console.log(signInData)
+  // console.log(signInData)
     if (signInData?.error) {
       console.log('Error during sign-in:', signInData.error);
       /*set toast for error*/

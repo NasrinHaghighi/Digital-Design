@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import Banner from '../../public/img/culture.png'
+
 import RenderDangerous from './RenderDangerous'
 
 

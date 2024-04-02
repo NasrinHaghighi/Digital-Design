@@ -13,7 +13,7 @@ const [value, setValue] = useState('');
        
            try {
                // Call API to remove post  
-               const res = await fetch(`http://localhost:3000/api/categories`,
+               const res = await fetch(`/api/categories`,
                    {
                        method: 'DELETE',
                        headers: {
@@ -40,7 +40,7 @@ const [value, setValue] = useState('');
         
         try {
                // Call API to remove category
-               const res = await fetch(`http://localhost:3000/api/categories`, {
+               const res = await fetch(`/api/categories`, {
                    method: 'PUT',
                    headers: {
                        'Content-Type': 'application/json'

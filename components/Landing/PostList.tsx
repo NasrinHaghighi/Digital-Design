@@ -6,7 +6,7 @@ import Pagination from './Pagination'
 
 
 const getData = async ({page, cat}:any) => {
-  const res=await fetch(`http://localhost:3000/api/post?page=${page}&cat=${cat}`
+  const res=await fetch(`${process.env.NEXTAUTH_URL}/api/post?page=${page}&cat=${cat}`
   , {cache: 'no-store'})
 
   if(!res.ok)  throw new Error('Network response was not ok')

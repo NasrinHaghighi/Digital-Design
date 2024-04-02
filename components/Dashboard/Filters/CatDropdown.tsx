@@ -11,7 +11,7 @@ import Link from 'next/link';
   
 const [data, setData ] = useState([]);
   const fetchData=async () => {
-    const res=await fetch("http://localhost:3000/api/categories", {cache: 'no-store'})
+    const res=await fetch(`/api/categories`, {cache: 'no-store'})
 
     if(!res.ok)  throw new Error('Network response was not ok')
 

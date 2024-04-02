@@ -11,7 +11,7 @@ interface Category {
 
 const getData = async (slug:string) => {
    
-    const res = await fetch(`http://localhost:3000/api/post?cat=${slug}`, { cache: 'no-store' }, );
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/post?cat=${slug}`, { cache: 'no-store' }, );
   
     if (!res.ok) {
       throw new Error('Network response was not ok');

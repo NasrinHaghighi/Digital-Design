@@ -4,14 +4,12 @@ import  Linkedin  from '../../public/img/linked.png'
 import NavbarLinks from './NavbarLinks'
 import NavbarRes from './NavbarRes'
 import Link from 'next/link'
-import { getServerSession } from 'next-auth'
-import { options } from '@/utils/auth'
 import Welcome from './Welcome'
 
 
 async function Navbar() {
- const sesstion = await getServerSession(options)
- console.log('sesstttion', sesstion?.user)
+
+
   return (
     <div className=' px-5 flex max-w-screen-xl justify-between items-center align-baseline 
     h-20 xs:px-5'>

@@ -6,7 +6,7 @@ import Comments from '@/components/Landing/Comments'
 
 /////
 const getData = async ( slug : string) => {
-  const res = await fetch(`http://localhost:3000/api/post/${slug}`
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/post/${slug}`
     , { cache: 'no-store' })
 
   if (!res.ok) throw new Error('fffffffffailed')

@@ -22,7 +22,7 @@ function CommentDashboardItem({ item }: Props) {
     const router = useRouter();
     const fetchReplies = async () => {
         try {
-            const res = await fetch(`http://localhost:3000/api/replies?commentId=${item.id}`);
+            const res = await fetch(`${process.env.NEXTAUTH_URL}/api/replies?commentId=${item.id}`);
             if (!res.ok) {
                 throw new Error('Failed to fetch replies');
             }
@@ -36,7 +36,7 @@ function CommentDashboardItem({ item }: Props) {
         //console.log(id);
         try {
 
-            const res = await fetch(`http://localhost:3000/api/comments`, {
+            const res = await fetch(`/api/comments`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

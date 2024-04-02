@@ -4,7 +4,7 @@ import React,{useEffect, useState} from 'react'
 import { useRouter } from 'next/navigation';
 
 function ReplyComponent({ item }: any) {
-    console.log(item)
+  //  console.log(item)
 const router =useRouter()
     const [openReply, setOpenReply] = useState(false);
     const [reply, setReply] = useState('');
@@ -14,7 +14,7 @@ const handleSubmitReply = async (e:any) => {
         e.preventDefault();
    
       try {
-      const res=  await fetch('http://localhost:3000/api/replies', {
+      const res=  await fetch(`/api/replies`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
