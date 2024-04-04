@@ -19,7 +19,7 @@ async function Navbar() {
         <div className='flex-1 md:hidden '>
       <NavbarRes/>
         </div>
-         <div className=' text-center '><Link href='/'>logo</Link></div>
+         <div className=' text-center '><Link href='/about'>logo</Link></div>
       
 
         <div className='hidden lg:flex flex-1 justify-end  gap-5 '>

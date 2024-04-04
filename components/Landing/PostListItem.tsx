@@ -12,8 +12,8 @@ function PostListItem({ item }: any) {
   
   return (
     <div className='mb-20 mt-8 grid lg:grid-flow-col grid-row-flow justify-around gap-5 md:gap-8  border-b-2 border-gray-300 pb-5 '>
-      <div className='col-span-9 flex  flex-col justify-between  sm:text-right gap-5 lg:order-1 order-2'>
-        <div className='flex text-sm text-center sm:justify-right '>
+      <div className='col-span-9 flex  flex-col justify-between  text-right gap-5 lg:order-1 order-2'>
+        <div className='flex text-sm justify-right '>
           <span className='text-red-400'>{item?.catSlug}</span>
           <span className='p-2'></span>
           <span>{item?.createdAt.substring(0, 10)}</span>

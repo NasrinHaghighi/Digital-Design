@@ -160,6 +160,10 @@ button:hover .ql-fill,
   --lightPurple:#27095f80;
   --ligthBlue:#EEF7FE;
   --textPurple:#A39FB4;
+  --hlight-blue:rgb(77, 116, 152);
+  --hlight-purple: rgb(96, 75, 148);
+  --hlight-pink:rgb(148, 87, 96);
+  --hlight-green:rgb(108, 148, 108);
 }
 [data-theme="dark"] {
   --bg:rgb(46, 38, 65);

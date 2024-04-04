@@ -19,16 +19,16 @@ export const GET = async (req: NextRequest) => {
     const sort = url.searchParams.get('sort');
 
     const search = url.searchParams.get('search');
-//console.log(sort, search)
-   
+    //console.log(sort, search)
+
     const POST_PER_PAGE = 6;
     const RECENT_POST_COUNT = 3;
     const query: any = {
         take: POST_PER_PAGE,
         skip: POST_PER_PAGE * (Number(page) - 1),
         where: {
-            ...(cat && { catSlug: cat }),
-            ...(search && { title: { contains: search.toLowerCase(),   mode: 'insensitive'  } })
+            ...(cat && { catSlug: cat as string }),
+            ...(search && { title: { contains: search.toLowerCase(), mode: 'insensitive' } })
         },
         orderBy: sort === 'oldest' ? { createdAt: 'asc' } : { createdAt: 'desc' }
     };
@@ -39,20 +39,22 @@ export const GET = async (req: NextRequest) => {
             prisma.post.count({ where: query.where })
 
         ]);
+      
         // Fetch the most recent post
         const lastPost = await prisma.post.findFirst({
             orderBy: { createdAt: 'desc' },
         });
         const mostRecentPost = await prisma.post.findMany({
-            orderBy: { createdAt: 'desc',  }, take: 4
+            orderBy: { createdAt: 'desc', }, take: 4
         });
-        
+
         return new NextResponse(JSON.stringify({ posts, count, lastPost, mostRecentPost }), { status: 200 });
     } catch (err) {
         console.log(err);
         return new NextResponse(JSON.stringify({ message: 'error' }), { status: 500 });
     }
 }
+
 
 
 

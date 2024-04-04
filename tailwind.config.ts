@@ -12,6 +12,28 @@ const config: Config = {
   theme: {
    
         extend: {
+          
+          keyframes: {
+            rotateCircle: {
+              '0%': { transform: 'rotate(-30deg)' },
+        
+              '100%': { transform: 'rotate(330deg)' },
+            },
+            
+            slideInRight: {
+              '0%': { transform: 'translateX(100%)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1 '},
+            },
+            slideInLeft: {
+              '0%': { transform: 'translateX(-100%)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+          },
+          animation: {
+            'slide-in-right': 'slideInRight 1s ease-out',
+            'slide-in-left': 'slideInLeft 1s ease-out',
+            'rotate-circle': 'rotateCircle 1s ease-out',
+          },
           colors: {
             'purple': '#3f3cbb',
              'bg':'var(--bg)',
@@ -27,6 +49,10 @@ const config: Config = {
             "iconDisable": "var(--iconDisable)",
             "input-bg": "var(--input-bg)",
             "input-bg2": "var(--input-bg2)",
+            "hlight-blue": "var(--hlight-blue)",
+            "hlight-purple": "var(--hlight-purple)",
+            "hlight-pink": "var(--hlight-pink)",
+            "hlight-green": "var(--hlight-green)"
           },
           screens: {
             'xxs':'320px',

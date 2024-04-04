@@ -19,11 +19,11 @@ async function Sidebar() {
     <>
     <h1 className='text-2xl mb-5'>پر ببیننده ترین پستها</h1>
     {mostRecentPost?.map((item:any)=>{
-return   <div className='flex flex-col gap-3 p-4 border-b-2 border-gray-200 mb-5 ' key={item.id}>
+return   <div className='flex flex-col gap-3 p-4 border-b-2 border-gray-200 mb-5 max-w-80' key={item.id}>
           <span className={`${bgCat(item.catSlug)} rounded-2xl w-14 p-2  flex justify-center  items-center `}>{item.catSlug}</span>
-          <div className='text-md font-semibold text-wrap'>
+          <div className='text-md font-semibold flex flex-nowrap'>
             <Link href={`/${item.slug}`}>
-            {item.title}
+            <span className='wrap'>{item.title}</span>
             </Link>
             </div>
             
@@ -32,8 +32,7 @@ return   <div className='flex flex-col gap-3 p-4 border-b-2 border-gray-200 mb-5
     })}
   <div className='text-center my-5'>
   <h1 className='text-2xl mb-5'>دسته بندی ها </h1>
-
-  <CategorySidebar />
+  <CategorySidebar />  
 
   </div>
     </>
