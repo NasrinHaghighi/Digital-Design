@@ -26,9 +26,9 @@ async function Features() {
        
 
         <div className="flex-1 md-order-1 mb-8 lg:mb-0">
-            <Image width={400} height={400} src={lastPost?.img} alt='logo' className='object-cover rounded-md h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] md:h-[400px] md:w-[400px] animate-slide-in-right' />
+            <Image width={400} height={400} src={lastPost?.img} alt='logo' className='object-cover rounded-md h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] md:h-[400px] md:w-[400px] lg:animate-slide-in-right' />
         </div>
-        <div className="flex-1 lg:text-xl md:text-lg text-md animate-slide-in-left">  
+        <div className="flex-1 lg:text-xl md:text-lg text-md lg:animate-slide-in-left">  
         
          {/* <div className='text-center sm:text-right' dangerouslySetInnerHTML={{ __html: lastPost?.des.substring(0, 650) + '...' }} />  */}
         

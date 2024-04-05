@@ -64,7 +64,7 @@ function Category() {
       
       {data.map((item: any, index) => {
         return <SwiperSlide key={index} className='mb-24   '>
-           <div className='relative w-44 h-44 group mx-auto'>
+           <div className='relative w-44 h-44 group mx-auto cursor-pointer'>
  <div className={`absolute border-4  ${borderCat(index)} rounded-full w-full h-full `}></div>
    <div className="absolute w-14 h-56 left-20   bg-input-bg transition-all group-hover:animate-rotate-circle "></div>
    <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center w-4/5 h-4/5 ${bgCat(index)} rounded-full text-lg font-semibold`}>

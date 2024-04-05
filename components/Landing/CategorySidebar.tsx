@@ -24,7 +24,7 @@ async function CategorySidebar() {
     <>
       {data?.map((item: any, index: number) => (
         //
-        <div className={`${bgCat(index)} rounded-md mb-5 max-w-80 px-4 py-2  hover:bg-gray-400 hover:text-textColor transition-all duration-500 text-textColor`} key={item.id}>
+        <div className={`${bgCat(index)} rounded-md mb-5 max-w-80 px-4 py-2  hover:bg-gray-400 hover:text-textColor transition-all duration-500 text-textColor lg:mx-0 mx-auto`} key={item.id}>
           <Link href={`/blog?cat=${item.slug}`} className='flex justify-between'>
             <NumberOfPostByCategory item={item} />
             <span className="relative z-10">{item.title}</span>

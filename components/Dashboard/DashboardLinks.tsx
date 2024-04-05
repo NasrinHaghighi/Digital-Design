@@ -6,7 +6,7 @@ import React from 'react'
 function DashboardLinks() {
   return (
    
-<ul className='grid place-items-center py-5 gap-10 mt-5 font-semibold text-lg'>
+<ul className='grid place-items-center py-5 gap-10 mt-5 font-semibold lg:text-lg text-base'>
     <li 
     className="hover:border-b-2 border-green-600 border-transparent transition duration-300 ease-in-out">
         <Link href='/dashboard'>داشبورد</Link></li>
