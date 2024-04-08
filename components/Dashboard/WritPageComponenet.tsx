@@ -91,17 +91,17 @@ function WritPageComponenet() {
    <div className='container pb-12 '>
   <h1 className='text-4xl font-bold p-8 text-center'>ایجاد متن جدید<span className='underline '></span></h1>
 
-<form onSubmit={formik.handleSubmit}>
+
 <div className='flex justify-center gap-10'>
       <button className="bg-rose-500 text-white w-36 rounded-md px-4 py-2 hover:bg-rose-700 transition" onClick={() => setOpenModal(true)}>
       مشاهده متن
       </button>
-      <span>***</span>
-      <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button>
+      
+      
      </div>
       <br />
       <br />
-
+      <form onSubmit={formik.handleSubmit}>
        <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={formik.values} />
 
     
@@ -157,6 +157,8 @@ function WritPageComponenet() {
 
 <ReactQuillBox value={value} setValue={setValue} />
      
+
+<button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button>
       </form>
     </div>
 

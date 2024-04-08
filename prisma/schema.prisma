@@ -71,6 +71,12 @@ model Category {
   img       String?
   Posts     Post[]
 }
+model About {
+  id        String   @id @default(cuid()) @map("_id")
+  createdAt   DateTime  @default(now())
+  img       String?
+  des       String?
+}
 model Post {
   id        String   @id @default(cuid()) @map("_id")
   createdAt   DateTime  @default(now())

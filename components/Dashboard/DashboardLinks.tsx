@@ -8,19 +8,21 @@ function DashboardLinks() {
    
 <ul className='grid place-items-center py-5 gap-10 mt-5 font-semibold lg:text-lg text-base'>
     <li 
-    className="hover:border-b-2 border-green-600 border-transparent transition duration-300 ease-in-out">
+   >
         <Link href='/dashboard'>داشبورد</Link></li>
     <li 
-    className="hover:border-b-2 border-green-600 border-transparent transition duration-300 ease-in-out">
+    >
         <Link href='/dashboard/posts'>پست ها</Link></li>
     <li 
-    className="hover:border-b-2 border-green-600 border-transparent transition duration-300 ease-in-out">
+   >
         <Link href='/dashboard/write'> ایجاد پست جدید</Link></li>
-    <li className="hover:border-b-2 border-green-6000 border-transparent transition duration-300 ease-in-out"><Link href='/dashboard/users'>کاربران</Link></li>
+    <li ><Link href='/dashboard/users'>کاربران</Link></li>
 
-    <li className="hover:border-b-2 border-green-600 border-transparent transition duration-300 ease-in-out "><Link href='/dashboard/category'>دسته بندی ها</Link></li>
+    <li ><Link href='/dashboard/category'>دسته بندی ها</Link></li>
 
-    <li className="hover:border-b-2 border-green-600 border-transparent transition duration-300 ease-in-out text-red-400"><Link href='/'>بازگشت به صفحه اصلی</Link></li>
+    <li ><Link href='/dashboard/writeabout'>درباره ما</Link></li>
+
+    <li className=" text-red-400"><Link href='/'>بازگشت به صفحه اصلی</Link></li>
     
 </ul>
   
