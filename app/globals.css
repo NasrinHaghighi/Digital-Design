@@ -47,6 +47,7 @@ border-radius: 10px !important;
 }
  .ql-container {
   border: none !important;
+font-family: vazir !important;
 
  
 }
@@ -140,6 +141,26 @@ button:hover .ql-fill,
   .ql-syntax {
     width: 320px !important;
   }
+}
+
+.ql-snow .ql-editor img {
+  max-width: 100%;
+  margin: 0 auto !important;
+}
+.leading-relaxed p{
+  line-height: 2 !important;
+  font-size: 18px !important;
+ 
+}
+.leading-relaxed p img{
+  /* //line-height: 2.5 !important; */
+  background-color: red;
+  margin: 0 auto !important;
+}
+.leading-relaxed ul li img{
+  /* //line-height: 2.5 !important; */
+ 
+  margin: 0 auto !important;
 }
 :root {
   --font-family-body: 'vazir', sans-serif;

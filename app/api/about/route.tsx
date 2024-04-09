@@ -21,9 +21,7 @@ export const POST = async (req: Request) => {
 
  export const GET = async (req: Request) => {
     
- console.log('about')
-
-    try{
+ try{
    
      const about = await prisma.about.findMany();
      return new NextResponse(JSON.stringify(about), { status: 200 });

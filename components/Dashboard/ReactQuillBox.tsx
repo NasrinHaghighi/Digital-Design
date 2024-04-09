@@ -32,7 +32,7 @@ const modules = {
     toolbar: [
       [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      ['bold', 'italic', 'underline', 'strike',],
       ['blockquote', 'code-block'],
       [
         { list: 'ordered' },
@@ -42,16 +42,21 @@ const modules = {
       ],
       ['link', 'image', 'video'],
       ['clean'],
-      // [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
+       [{ 'color': ['red', 'pink', 'orange', 'yellow', 'green', 'blue', 'brown'] }, { 'background': [] }],          // dropdown with defaults from theme
      
-      // [{ 'align': [] }],
+      [
+        { align: "" },
+        { align: "center" },
+        { align: "right" },
+        { align: "justify" },
+    ],
     ],
     clipboard: {
       // toggle to add extra line breaks when pasting HTML:
       matchVisual: false
     },
     imageResize: {
-      //parchment: Quill.import('parchment'),
+     // parchment: Quill.import('parchment'),
       modules: ['Resize', 'DisplaySize']
     }
   }
@@ -74,6 +79,9 @@ const modules = {
     'link',
     'image',
     'video',
+    'color', 
+    'align',
+    'background',
     "code-block", // Include "code-block" format here
     "bulleted-list",
     "numbered-list",

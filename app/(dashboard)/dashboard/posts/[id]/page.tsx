@@ -142,7 +142,7 @@ function SiglePostDashboard() {
             <br />
             <br />
 
-            {/* <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={updatedPost} />  */}
+         <WriteModal openModal={openModal} setOpenModal={setOpenModal} values={updatedPost} />  
 
             <form onSubmit={handleSubmit}>
                 <div className='mb-8'>
