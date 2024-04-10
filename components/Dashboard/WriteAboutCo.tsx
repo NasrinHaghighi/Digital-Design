@@ -124,7 +124,7 @@ const handelEditAbout=(e:any)=>{
             <div className='items-center justify-between gap-5 flex flex-col md:flex-row'>
             <div>
                            <span>تصویر قبلی</span>
-                            <Image src={about?.img as string} alt='fromapi' className='h-40 w-40 object-cover rounded-lg' width={40} height={40}/></div>
+                            <Image src={about?.img ? about?.img :''} alt='fromapi' className='h-40 w-40 object-cover rounded-lg' width={40} height={40}/></div>
               {/* UPLOAD COMPONENT */}
               <Upload setFile={setFile} />
               {/* UPLOAD COMPONENT */}

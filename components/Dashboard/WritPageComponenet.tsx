@@ -157,12 +157,13 @@ function WritPageComponenet() {
 
 <ReactQuillBox value={value} setValue={setValue} />
      
-
+<div className='flex justify-center items-center my-5'>
 <button className='bg-green-500  text-white w-36  rounded-md px-4 py-2 hover:bg-green-700 transition' type='submit' onSubmit={handelSubmit}> ارسال</button>
+</div>
       </form>
     </div>
 
-  )
+  
    
    
    </>

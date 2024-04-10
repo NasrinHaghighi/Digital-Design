@@ -12,7 +12,7 @@ function DashboardUserItem({item}:{item:User}) {
 
   return (
     <div className='gird grid-cols-1 md:grid-cols-3 gap-5 mb-5'>
-    <div className='bg-input-bg p-5 rounded-lg shadow-md '>
+    <div className='bg-input-bg2 p-5 rounded-lg shadow-md '>
     <div className='flex flex-col lg:flex-row justify-between text-lg mb-5 gap-y-3 '>
     
                     <div className='text-gary-500'>نام کاربر: <span className='text-green-500 font-semibold '>{item?.name}</span>

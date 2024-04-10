@@ -152,6 +152,13 @@ button:hover .ql-fill,
   font-size: 18px !important;
  
 }
+@media (max-width: 700px) {
+  .leading-relaxed p{
+    line-height: 2 !important;
+    font-size: 14px !important;
+   
+  }
+}
 .leading-relaxed p img{
   /* //line-height: 2.5 !important; */
   background-color: red;
