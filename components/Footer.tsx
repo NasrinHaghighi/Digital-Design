@@ -18,7 +18,7 @@ function Footer() {
  <div className='text-center '><AuthLinks /> </div>
       {/* */}
     </div>
-    <div className='text-center py-5 font-semibold md:text-xl text-base px-3 mb-44 '>برای داشتن یک وب‌سایت مانند این، با ما در <Link href='https://www.linkedin.com/in/nasrin-haghighi-615488a4/ ' className='text-red-400'>لینکدین </Link> یا <Link href='@WebDeveloperNasrin' className='text-red-400'> تلگرام</Link> تماس بگیرید.</div> 
+    <div className='text-center py-5 font-semibold md:text-xl text-base px-3 mb-44 '>برای داشتن یک وب‌سایت مانند این، با ما در <Link href='https://www.linkedin.com/in/nasrin-haghighi-615488a4/ ' className='text-rose-400'>لینکدین </Link> یا <Link href='@WebDeveloperNasrin' className='text-blue-400'> تلگرام</Link> تماس بگیرید.</div> 
     </>
   )
 }
