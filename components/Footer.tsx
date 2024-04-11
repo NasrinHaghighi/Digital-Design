@@ -11,7 +11,7 @@ function Footer() {
       <div>Logo</div>
 < div className='flex justify-center items-center  gap-5 font-semibold my-5'>
       <Link href='/'>خانه</Link>
-     <Link href='/about'>درباره ما</Link>
+     <Link href='/about' >درباره ما</Link>
     
  
  </div>
