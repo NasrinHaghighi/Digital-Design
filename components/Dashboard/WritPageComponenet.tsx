@@ -10,14 +10,16 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
 import WriteModal from '@/components/Write/WriteModal';
-//import ImageResize from 'quill-image-resize-module-react';
-//import Quill from 'quill';
 import Image from 'next/image';
-//import dynamic from "next/dynamic";
-//const ReactQuill = typeof window !== 'undefined' ? dynamic(() => import('react-quill'), { ssr: false }) : null;
-//import 'react-quill/dist/quill.snow.css';
-import ReactQuillBox from '@/components/Dashboard/ReactQuillBox';
 
+import ReactQuillBox from '@/components/Dashboard/ReactQuillBox';
+interface Cate{
+  id:number,
+  createdAt:string,
+  img:string,
+  slug:string,
+  title:string
+}
 function WritPageComponenet() {
     const router = useRouter();
     const session = useSession();
@@ -33,7 +35,7 @@ function WritPageComponenet() {
     const [openModal, setOpenModal] = useState(false);
     const [value, setValue] = useState('');
     const [file, setFile] = useState<File | null>(null);
-  
+  const [cate, setCate] = useState<Cate[] | null>(null);
   
   
     
@@ -85,6 +87,16 @@ function WritPageComponenet() {
           });
       // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [value, file]);
+
+     const getcategpry =async()=>{
+      const res = await fetch('/api/categories');
+      const data = await res.json();
+     setCate(data);
+     }
+     useEffect(() => {
+       getcategpry();
+     }, []);
+     
   return (
    <>
    
@@ -122,14 +134,21 @@ function WritPageComponenet() {
 
         <div className=' mb-8'>
           <label htmlFor="category" className="block mb-2 text-sm font-medium text-textColor">دسته بندی</label>
-          <input
+          <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-l rounded-lg focus:ring-blue-500 focus:border-blue-500 block   dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full p-2 ">
+            
+  {cate?.map((cat:Cate) => (
+    <option className='rounded-md font-semibold w-48' key={cat.id}><span className='py-8 rounded-md mx-5 bg-red-500'>{cat.title}</span></option>
+  ))}
+ 
+  </select>
+          {/* <input
             id="category"
             name="category"
             type="text"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="دسته بندی" required
             onChange={formik.handleChange}
             value={formik.values.category}
-          />
+          /> */}
           {formik.touched.category && formik.errors.category ? (
             <div className="input feedback text-rose-600">{formik.errors.category}</div>
           ) : null}
