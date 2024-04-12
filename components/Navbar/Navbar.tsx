@@ -5,7 +5,7 @@ import NavbarLinks from './NavbarLinks'
 import NavbarRes from './NavbarRes'
 import Link from 'next/link'
 import Welcome from './Welcome'
-
+import Logo from '../../public/img/logo14.png'
 
 async function Navbar() {
 
@@ -19,7 +19,10 @@ async function Navbar() {
         <div className='flex-1 md:hidden '>
       <NavbarRes/>
         </div>
-         <div className=' text-center '><Link href='/about'>logo</Link></div>
+         <div className=' text-center '><Link href='/'>
+          
+         <Image src={Logo} alt='logo' width={60} height={60} />
+          </Link></div>
       
 
         <div className='hidden lg:flex flex-1 justify-end  gap-5 '>
