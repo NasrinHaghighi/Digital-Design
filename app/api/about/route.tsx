@@ -33,8 +33,8 @@ export const POST = async (req: Request) => {
 
  export const PUT = async (req: Request) => {
     const body = await req.json();
-    const { id, img, des } = body;
-   // console.log(id,img,des)
+    const { id, img, des, title, subTitle } = body;
+ console.log(id,img ,des, title, subTitle)
     try{
 
         const updateAbout = await prisma.about.update({
@@ -43,7 +43,10 @@ export const POST = async (req: Request) => {
             },
             data: {
                 des: des,
-                img:img 
+                img:img ,
+                title: title,
+                subTitle: subTitle
+
             }
         });
         return new NextResponse(JSON.stringify(updateAbout), { status: 200 });

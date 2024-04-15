@@ -24,8 +24,8 @@ const data= await getData()
     {/* Other content */}
   </div>
   <div className='absolute top-1/3 right-2/4  md:text-5xl text-l md:pt-12 '>
-    <h1 className='md:text-3xl text-xl'>علی آذریان</h1>
-    <h1>طراح دیجیتال</h1>
+    <h1 className='md:text-3xl text-xl'>{data[0].title ? data[0].title :''}</h1>
+    <h1>{data[0].subTitle ? data[0].subTitle :''}</h1>
   </div>
  
 </div>

@@ -10,7 +10,7 @@ function Footer() {
   return (
     <>
     <div className='border-t border-gray-300 pt-24 my-24  justify-between md:flex-row flex-col text-center' >
-      <div className='flex justify-center '>
+      <div className='flex justify-center transform transition-transform duration-300 scale-100 hover:scale-110'>
       <Image src={Logo} alt='logo' width={60} height={60} />
       </div>
 < div className='flex justify-center items-center  gap-5 font-semibold my-5'>
@@ -31,9 +31,3 @@ function Footer() {
 export default Footer
 
 
-{/* <div className='flex flex-col justify-center items-center '>
-<div className='mb-12'>LOGO</div>
-<Link href='https://www.linkedin.com/in/nasrin-haghighi-615488a4/'>
-<Image src={Linkedin} alt='logo' width={80} height={15} style={{marginLeft: 10}} />
-</Link>
-</div> */}

@@ -76,6 +76,8 @@ model About {
   createdAt   DateTime  @default(now())
   img       String?
   des       String?
+  title     String?
+  subTitle   String?
 }
 model Post {
   id        String   @id @default(cuid()) @map("_id")

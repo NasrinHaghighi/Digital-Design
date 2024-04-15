@@ -12,22 +12,25 @@ import Image from 'next/image';
 Quill.register('modules/imageResize', ImageResize);
 import Upload from '../Write/Upload';
 import { useRouter } from 'next/navigation';
-import ReactQuillBox from './ReactQuillBox';
 import ModalAboutPage from './ModalAboutPage';
 
 interface About {
   des: string;
-  img: string ;
+  img: any ;
   id:string, 
-  createdAt:string
+  createdAt:string;
+  title:string;
+  subTitle:string;
 }
 
 function WriteAboutCo() {
   const [about, setAbout] = useState<About | undefined>(undefined);
    const [value, setValue] = useState <string | undefined>('');
-   const [file, setFile] = useState<File | null>(null);
+   const [file, setFile] = useState<File | null | undefined>(null);
    const [values, setValues] = useState({value, file})
    const [openModal, setOpenModal] = useState(false);
+   const [title, setTitle] = useState<string | undefined>('');
+   const [subTitle, setSubTitle] = useState<string | undefined>('');
   const router = useRouter();
 
 useEffect(() => {
@@ -53,14 +56,16 @@ setValues({value, file})
 
   useEffect(() => {
     fetchabout()
-   setFile(null)
+   // setFile(null)
   }, [])
   useEffect(() => {
    setValue(about?.des)
-    //setFile(about?.img as unknown as File)
-   
+    setTitle(about?.title as string)
+   // setFile(about?.img as File)
+    setSubTitle(about?.subTitle as string)
   }, [about])
-
+console.log(about)
+console.log(file)
 /*get abot from api*/
   const handelValue = (content:string) => {
 setValue(content)
@@ -73,13 +78,20 @@ setValue(content)
  };
 
 const handelEditAbout=(e:any)=>{
+  let image;
+  if(!file){
+    image=about?.img
+    
+  }else{
+    image=file
+  }
   e.preventDefault()
    const res=  fetch('/api/about', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ id :'clumqokfx0001jgw9kg9zcp20', des:value, img:file })
+    body: JSON.stringify({ id :'clumqokfx0001jgw9kg9zcp20', des:value, img:image, title:title , subTitle:subTitle})
   })
   res.then(res => {
     if (!res.ok) {
@@ -145,7 +157,34 @@ const handelEditAbout=(e:any)=>{
           </div>
 
         </div>
-
+        {/* TITLE  */}
+        <div className='mb-8'>
+                    <label htmlFor="category" className="block mb-2 text-sm font-medium text-textColor"> عنوان</label>
+                    <input
+                        id="category"
+                        name="category"
+                        type="text"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="دسته بندی" required
+                        onChange={(e)=>setTitle(e.target.value)}
+                        value={title}
+                    />
+                    <br />
+                    <br />
+      </div>
+            {/*Sub TITLE  */}
+            <div className='mb-8'>
+                    <label htmlFor="category" className="block mb-2 text-sm font-medium text-textColor">  زیر عنوان </label>
+                    <input
+                        id="category"
+                        name="category"
+                        type="text"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="دسته بندی" required
+                        onChange={(e)=>setSubTitle(e.target.value)}
+                        value={subTitle}
+                    />
+                    <br />
+                    <br />
+      </div>
         {/* DESCRIPTION */}
         {/* <ReactQuillBox value={value} setValue={setValue} />  */}
 
