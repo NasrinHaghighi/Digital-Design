@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Banner from '../../../public/img/culture.png'
 import Sidebar from '@/components/Landing/Sidebar'
 import Comments from '@/components/Landing/Comments'
+import LikePostco from '@/components/Landing/LikePostco'
 
 /////
 const getData = async ( slug : string) => {
@@ -21,7 +22,7 @@ const getData = async ( slug : string) => {
   const data = await getData( slug )
  
  
- 
+
   return (
     <div className=''>
       
@@ -45,6 +46,7 @@ const getData = async ( slug : string) => {
    
      <div className='leading-relaxed' dangerouslySetInnerHTML={{ __html: data?.des || '' }} />  
     <div>
+      <LikePostco postId={data?.id} />
       <Comments postSlug={data?.slug} />
     </div>
    </div> 

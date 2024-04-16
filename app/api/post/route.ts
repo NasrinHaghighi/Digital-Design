@@ -88,6 +88,11 @@ export const DELETE = async (req: Request) => {
     const { id, slug } = body;
     
     try {
+        await prisma.like.deleteMany({
+            where: {
+                postId: id as string
+            }
+        });
         await prisma.reply.deleteMany({
             where: {
                 postSlug: slug as string

@@ -2,8 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import {bgCat} from '../../utils/bgcategory'
 import ActionPostItem from './ActionPostItem'
+import NumberOfLikes from './NumberOfLikes'
 
 function DashboardPostitem({post}:any) {
+
+  
   return (
     <div className='gird grid-cols-1 md:grid-cols-3 gap-5 mb-5'>
       <div className='bg-input-bg2 p-5 rounded-lg shadow-md '>
@@ -16,7 +19,9 @@ function DashboardPostitem({post}:any) {
         </div>
           <div className='mb-8 md:text-3xl  '>عنوان:<span className='px-1'></span><span>{post.title}</span></div>
 <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center gap-3'>
-  <div className='text-sm'>تعداد بازدید : <span className='px-1 text-red-500'>{post.views} </span></div> 
+  <div className='text-sm flex justify-start'>تعداد لایک  : <span className='px-1 text-red-500'>
+    <NumberOfLikes postId={post.id}/>
+     </span></div> 
 
 
   <div><ActionPostItem post={post} /></div>

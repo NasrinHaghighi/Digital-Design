@@ -38,11 +38,18 @@ model Session {
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
-
+enum ReactionType {
+  LIKE
+  LOVE
+  HAHA
+  WOW
+  SAD
+  ANGRY
+}
 model User {
   id            String    @id @default(cuid()) @map("_id") 
   name          String
-
+  likes         Like[]
   email         String   @unique
   emailVerified DateTime?
   image         String?
@@ -94,6 +101,7 @@ model Post {
   userName  String?
   comments   Comment[]   
   replies   Reply[]
+  likes         Like[]
 }
 model Comment {
   id        String   @id @default(cuid()) @map("_id")
@@ -126,3 +134,15 @@ model Img {
   url       String
   createdAt DateTime @default(now())
 }
+
+model Like {
+  id      String   @id @default(cuid()) @map("_id")
+  user      User         @relation(fields: [userEmail], references: [id])
+  userEmail    String
+  post      Post         @relation(fields: [postId], references: [slug])
+  postId    String
+  reaction      ReactionType   @default(LIKE)
+  createdAt     DateTime       @default(now())
+   @@unique([userEmail, postId])
+}
+

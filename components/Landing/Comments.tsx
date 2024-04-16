@@ -47,7 +47,7 @@ const data = await getData ({postSlug})
         <h2 className="mt-5 mb-5">نظرات دوستان :</h2>
        {data?.map((item:Props, index:number)=>{
         return <CommentItem key={index} item={item} >
-           <ShowReply item={item}/> 
+                    <ShowReply item={item}/> 
                </CommentItem>
         })} 
        </div>
