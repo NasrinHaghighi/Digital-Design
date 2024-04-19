@@ -18,7 +18,7 @@ const data= await getData()
     <div className='relative bg-bg '>
    <div className="grid grid-cols-2 grid-rows-1 gap-4 my-8 bg-input-bg  rounded-lg shadow-lg mx-auto relative  overflow-hidden ">
 <div className='bg-teal-100 '>
- <Image src={data[0].img ? data[0].img :''} alt="Description" className='w-full h-full ' width={128} height={128} /> 
+ <Image src={data[0].img ? data[0].img :''} alt="Description" className='w-full h-full ' objectFit='cover' width={200} height={200} /> 
 </div>
   <div>
     {/* Other content */}

@@ -12,7 +12,7 @@ const config: Config = {
   theme: {
    
         extend: {
-          
+         
           keyframes: {
             rotateCircle: {
               '0%': { transform: 'rotate(-30deg)' },

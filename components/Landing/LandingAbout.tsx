@@ -2,6 +2,7 @@ import React from 'react'
 import photo from '../../public/img/fashion.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import bg from '../../public/img/fashion.png'
 
 const getData = async () => {
   const res=await fetch(`${process.env.NEXTAUTH_URL}/api/about`
@@ -20,9 +21,9 @@ async function LandingAbout() {
         <h1 className='text-2xl text-center mb-5'>درباره ما</h1>
         <div className="grid grid-cols-12 lg:gap-8 lg:items-center gap-0 ">
         
-           <div className="lg:col-span-4 col-span-12 order-1 lg:order-1 rounded-full overflow-hidden lg:w-72 lg:h-72 mx-auto w-64 h-64 mb-5 lg:mb-0 "> 
+           <div className="lg:col-span-4 col-span-12 order-1 lg:order-1 rounded-full  flex justify-center items-center lg:w-72 lg:h-72 mx-auto w-64 h-64 mb-5 lg:mb-0 "> 
           
-            <Image src={data[0].img ? data[0].img :''} alt="Description" className='w-full h-full'  width={64}  height={64}  />
+             <Image src={data[0].img ? data[0].img : ''} alt="Description"  objectFit='cover' className='rounded-full ' width={250} height={200} />
           </div> 
           
          
